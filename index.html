@@ -1,0 +1,2827 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="description" content="שלומי צור – צלם אירועים, חתונות ומשפחה. צילום מקצועי באווירה רגועה וטבעית, גלריית עבודות והצעת מחיר מותאמת אישית.">
+    <meta name="theme-color" content="#faf8f5">
+    <meta property="og:title" content="שלומי צור | צילום אירועים, חתונות ומשפחה">
+    <meta property="og:description" content="תיק עבודות, גלריית צילום והצעת מחיר מהירה ישירות לוואטסאפ">
+    <meta property="og:type" content="website">
+    <title>שלומי צור | צילום אירועים, חתונות ומשפחה</title>
+    
+    <!-- Google Fonts: Exclusively Rubik -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<style>
+/* ══════════════════════════════════════════════════
+   DESIGN SYSTEM: RADIANT LUXURY (LIGHT & EDITORIAL)
+   Font: Rubik only • Mobile-First • Ultra Premium
+   ══════════════════════════════════════════════════ */
+:root {
+    --bg-page: #faf8f5;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #ffffff;
+    --bg-alt: #f3eee7;
+    --bg-card: #ffffff;
+    
+    --primary: #b88a38;
+    --primary-light: #d6ab58;
+    --primary-dark: #966f28;
+    --primary-gradient: linear-gradient(135deg, #c49942 0%, #dfb75c 50%, #af812f 100%);
+    --primary-soft: rgba(184, 138, 56, 0.08);
+    --primary-border: rgba(184, 138, 56, 0.22);
+    
+    --text-main: #1d1916;
+    --text-muted: #57504a;
+    --text-light: #877e76;
+    --border-subtle: #eae3da;
+    --border-strong: #d8cec2;
+    
+    --whatsapp: #25D366;
+    --whatsapp-dark: #1da851;
+    --whatsapp-glow: rgba(37, 211, 102, 0.22);
+
+    --shadow-sm: 0 2px 8px rgba(35, 25, 15, 0.04);
+    --shadow-md: 0 10px 25px -4px rgba(45, 30, 18, 0.06), 0 4px 10px -2px rgba(45, 30, 18, 0.03);
+    --shadow-lg: 0 20px 40px -10px rgba(45, 30, 18, 0.09), 0 8px 16px -4px rgba(45, 30, 18, 0.04);
+    --shadow-glow: 0 12px 30px rgba(184, 138, 56, 0.2);
+
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-full: 9999px;
+
+    --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    --duration: 0.3s;
+}
+
+/* Base Reset */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Typography Reset ensuring FontAwesome is NEVER overridden */
+html, body, button, input, textarea, select, p, h1, h2, h3, h4, h5, h6, span, a, div, label {
+    font-family: 'Rubik', sans-serif;
+}
+
+/* Ensure FontAwesome icons keep their dedicated icon fonts */
+i, .fa, .fas, .far, .fal, .fab, .fa-solid, .fa-regular, .fa-brands, [class*="fa-"] {
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+    font-style: normal;
+    display: inline-block;
+    line-height: 1;
+}
+.fa-brands, [class*="fa-brands"] {
+    font-family: "Font Awesome 6 Brands" !important;
+}
+.fa-solid, [class*="fa-solid"] {
+    font-weight: 900 !important;
+}
+i::before, .fa::before, [class*="fa-"]::before {
+    font-family: inherit !important;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+}
+
+body {
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding-bottom: 76px; /* space for mobile dock */
+}
+
+@media (min-width: 992px) {
+    body { padding-bottom: 0; }
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ══════════════════════════════════════════════════
+   NAVIGATION
+   ══════════════════════════════════════════════════ */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 248, 245, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-subtle);
+    transition: all var(--duration) var(--ease-smooth);
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo img {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+    transition: transform var(--duration) ease;
+}
+
+.nav-logo:hover img {
+    transform: scale(1.03);
+}
+
+.nav-links {
+    display: none;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-link {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    transition: color var(--duration) ease;
+    position: relative;
+    padding: 6px 0;
+}
+
+.nav-link:hover {
+    color: var(--primary-dark);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--primary);
+    transition: width var(--duration) ease;
+    border-radius: 2px;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-nav-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--whatsapp);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 9px 18px;
+    border-radius: var(--radius-full);
+    box-shadow: 0 4px 14px var(--whatsapp-glow);
+    transition: all var(--duration) ease;
+}
+
+.btn-nav-wa:hover {
+    background: var(--whatsapp-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+}
+
+.hamburger-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-sm);
+    color: var(--text-main);
+    font-size: 1.25rem;
+    background: var(--bg-alt);
+    border: 1px solid var(--border-subtle);
+}
+
+@media (min-width: 992px) {
+    .nav-links { display: flex; }
+    .hamburger-btn { display: none; }
+}
+
+/* Mobile Drawer */
+.drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 15, 10, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.drawer-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.drawer {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: min(300px, 85vw);
+    height: 100%;
+    background: #ffffff;
+    z-index: 1001;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    transition: right 0.35s var(--ease-smooth);
+}
+
+.drawer.open {
+    right: 0;
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.drawer-close {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    background: var(--bg-alt);
+    color: var(--text-muted);
+}
+
+.drawer-menu {
+    list-style: none;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.drawer-menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--text-main);
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    transition: background var(--duration) ease;
+}
+
+.drawer-menu a i {
+    color: var(--primary);
+    width: 22px;
+}
+
+.drawer-menu a:hover {
+    background: var(--bg-alt);
+}
+
+/* ══════════════════════════════════════════════════
+   HERO / ABOUT: COMPACT, CONCISE WITH CIRCULAR PHOTO
+   ══════════════════════════════════════════════════ */
+.hero-compact {
+    padding: 32px 0 36px;
+    background: linear-gradient(180deg, rgba(243, 238, 231, 0.45) 0%, rgba(250, 248, 245, 1) 100%);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.hero-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+    gap: 16px;
+}
+
+@media (min-width: 768px) {
+    .hero-box {
+        flex-direction: row;
+        text-align: right;
+        gap: 32px;
+        align-items: center;
+    }
+}
+
+.hero-avatar-wrap {
+    flex-shrink: 0;
+    position: relative;
+}
+
+.hero-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 15%;
+    border: 3.5px solid #ffffff;
+    box-shadow: 0 8px 25px rgba(60, 45, 30, 0.12);
+    background: #eae2d5;
+}
+
+@media (min-width: 768px) {
+    .hero-avatar {
+        width: 135px;
+        height: 135px;
+    }
+}
+
+.hero-text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    background: var(--primary-soft);
+    padding: 3px 12px;
+    border-radius: var(--radius-full);
+    align-self: center;
+}
+
+@media (min-width: 768px) {
+    .hero-tag { align-self: flex-start; }
+}
+
+.hero-title {
+    font-size: clamp(1.45rem, 3.2vw, 1.95rem);
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--text-main);
+    letter-spacing: -0.01em;
+}
+
+.hero-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.hero-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 4px;
+}
+
+@media (min-width: 768px) {
+    .hero-btns { justify-content: flex-start; }
+}
+
+.btn-hero-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--primary-gradient);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.92rem;
+    padding: 10px 22px;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--duration) ease;
+}
+
+.btn-hero-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-glow);
+}
+
+.btn-hero-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.92rem;
+    padding: 10px 20px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-strong);
+    transition: all var(--duration) ease;
+}
+
+.btn-hero-secondary:hover {
+    background: var(--bg-alt);
+    border-color: var(--primary);
+}
+
+/* ══════════════════════════════════════════════════
+   GALLERY SECTION (SHUFFLED, SHORT, NO NUMBERING)
+   ══════════════════════════════════════════════════ */
+.gallery-section {
+    padding: 50px 0 60px;
+    background: #ffffff;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-head {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 30px;
+}
+
+.section-tag {
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--primary-dark);
+    margin-bottom: 8px;
+}
+
+.section-title {
+    font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.01em;
+}
+
+.section-sub {
+    font-size: 0.98rem;
+    color: var(--text-muted);
+    margin-top: 8px;
+}
+
+/* Filter Bar (No count badges) */
+.gallery-filter-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 26px;
+}
+
+.filter-chip {
+    padding: 7px 20px;
+    border-radius: var(--radius-full);
+    font-weight: 500;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    background: var(--bg-alt);
+    border: 1px solid transparent;
+    transition: all var(--duration) ease;
+    cursor: pointer;
+}
+
+.filter-chip:hover {
+    background: #ebe5dc;
+    color: var(--text-main);
+}
+
+.filter-chip.active {
+    background: var(--text-main);
+    color: #ffffff;
+    border-color: var(--text-main);
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+@media (min-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+}
+
+.album-card {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: #eee8e0;
+    aspect-ratio: 4 / 5;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--duration) var(--ease-smooth);
+}
+
+.album-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.album-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.album-card:hover img {
+    transform: scale(1.05);
+}
+
+.album-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 12, 10, 0.72) 0%, rgba(15, 12, 10, 0.05) 50%, rgba(0,0,0,0) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 14px;
+    color: #ffffff;
+}
+
+.album-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(6px);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    align-self: flex-start;
+}
+
+/* Load More Bar */
+.gallery-expand-wrap {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-expand-gallery {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border-strong);
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: var(--radius-full);
+    transition: all var(--duration) ease;
+}
+
+.btn-expand-gallery:hover {
+    background: #e6dfd5;
+    color: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+/* ══════════════════════════════════════════════════
+   CALCULATOR: הצעת מחיר
+   ══════════════════════════════════════════════════ */
+.calc-section {
+    padding: 60px 0;
+    background: var(--bg-page);
+    position: relative;
+}
+
+.calc-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+/* Category Selection Bar (Touch Tabs) */
+.calc-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--bg-alt);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 8px;
+    gap: 8px;
+}
+
+@media (min-width: 600px) {
+    .calc-nav {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+.calc-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 6px;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.88rem;
+    gap: 6px;
+    transition: all var(--duration) ease;
+    cursor: pointer;
+    min-height: 64px;
+}
+
+.calc-tab i {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    transition: color var(--duration) ease;
+}
+
+.calc-tab:hover {
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.calc-tab.active {
+    background: #ffffff;
+    color: var(--text-main);
+    box-shadow: var(--shadow-sm);
+}
+
+.calc-tab.active i {
+    color: var(--primary);
+}
+
+/* Panels */
+.calc-panel {
+    display: none;
+    padding: 24px;
+}
+
+@media (min-width: 768px) {
+    .calc-panel { padding: 36px 40px; }
+}
+
+.calc-panel.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 22px;
+}
+
+.panel-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.panel-base-pill {
+    background: var(--primary-soft);
+    color: var(--primary-dark);
+    border: 1px solid var(--primary-border);
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.calc-group-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin: 20px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.calc-group-title i {
+    color: var(--primary);
+}
+
+/* Option Cards */
+.option-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border-radius: var(--radius-md);
+    background: #faf8f5;
+    border: 1.5px solid var(--border-subtle);
+    cursor: pointer;
+    transition: all var(--duration) ease;
+    user-select: none;
+    min-height: 54px;
+}
+
+.option-item:hover {
+    background: #f4efe9;
+    border-color: var(--border-strong);
+}
+
+.option-item.selected {
+    background: #ffffff;
+    border-color: var(--primary);
+    box-shadow: 0 4px 14px rgba(184, 138, 56, 0.12);
+}
+
+.option-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.option-checkbox-custom {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    border: 2px solid var(--border-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    transition: all var(--duration) ease;
+    color: transparent;
+    font-size: 0.75rem;
+}
+
+.option-item.selected .option-checkbox-custom {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #ffffff;
+}
+
+.option-radio-custom {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--border-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    transition: all var(--duration) ease;
+}
+
+.option-item.selected .option-radio-custom::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary);
+}
+
+.option-title {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.option-price-tag {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--primary-dark);
+    direction: ltr;
+}
+
+/* Contact Notice Box */
+.contact-notice-box {
+    text-align: center;
+    padding: 36px 20px;
+    background: #faf8f5;
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--border-strong);
+}
+
+.contact-notice-box p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+}
+
+/* Live Footer in Calculator */
+.calc-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 24px;
+    background: #ffffff;
+    border-top: 1px solid var(--border-subtle);
+}
+
+@media (min-width: 600px) {
+    .calc-footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 40px;
+    }
+}
+
+.calc-total-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.calc-total-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.calc-total-num {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+}
+
+.btn-proceed-booking {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--whatsapp);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 15px 30px;
+    border-radius: var(--radius-full);
+    box-shadow: 0 6px 20px var(--whatsapp-glow);
+    transition: all var(--duration) ease;
+    cursor: pointer;
+}
+
+.btn-proceed-booking:hover {
+    background: var(--whatsapp-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+/* ══════════════════════════════════════════════════
+   TESTIMONIALS (לקוחות מספרים - ללא שמות וסוג)
+   ══════════════════════════════════════════════════ */
+.reviews-section {
+    padding: 60px 0;
+    background: #ffffff;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .reviews-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.review-card {
+    background: var(--bg-page);
+    border-radius: var(--radius-lg);
+    padding: 26px 24px;
+    border: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all var(--duration) ease;
+}
+
+.review-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-strong);
+    background: #ffffff;
+}
+
+.review-stars {
+    color: #f59e0b;
+    display: flex;
+    gap: 4px;
+    font-size: 0.9rem;
+    margin-bottom: 14px;
+}
+
+.review-quote {
+    font-size: 0.96rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    font-style: italic;
+    position: relative;
+}
+
+/* ══════════════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════════════ */
+.site-footer {
+    background: #1a1614;
+    color: #e6dfd5;
+    padding: 50px 0 26px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 36px;
+}
+
+@media (min-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr;
+    }
+}
+
+.footer-brand img {
+    height: 46px;
+    width: auto;
+    margin-bottom: 14px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-bio {
+    font-size: 0.9rem;
+    color: #a89f95;
+    line-height: 1.6;
+    max-width: 320px;
+}
+
+.footer-col h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 14px;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: #a89f95;
+    font-size: 0.92rem;
+    transition: color var(--duration) ease;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.social-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    transition: all var(--duration) ease;
+}
+
+.social-btn:hover {
+    background: var(--primary);
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #8a8278;
+}
+
+@media (min-width: 768px) {
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.footer-legal-links {
+    display: flex;
+    gap: 16px;
+}
+
+.footer-legal-links button {
+    color: #a89f95;
+    font-size: 0.85rem;
+    text-decoration: underline;
+}
+
+.footer-legal-links button:hover {
+    color: #ffffff;
+}
+
+/* ══════════════════════════════════════════════════
+   FLOATING MOBILE DOCK
+   ══════════════════════════════════════════════════ */
+.mobile-dock {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 10px;
+    z-index: 990;
+    box-shadow: 0 -4px 16px rgba(0,0,0,0.05);
+}
+
+@media (min-width: 992px) {
+    .mobile-dock { display: none; }
+}
+
+.dock-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 500;
+    gap: 3px;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    transition: color var(--duration) ease;
+}
+
+.dock-item i {
+    font-size: 1.15rem;
+}
+
+.dock-item:hover, .dock-item:focus {
+    color: var(--primary-dark);
+}
+
+.dock-wa {
+    color: var(--whatsapp);
+    font-weight: 700;
+}
+
+.dock-wa i {
+    font-size: 1.3rem;
+}
+
+/* ══════════════════════════════════════════════════
+   MODALS
+   ══════════════════════════════════════════════════ */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 15, 10, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 2000;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .modal-overlay {
+        align-items: center;
+        padding: 20px;
+    }
+}
+
+.modal-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 680px;
+    max-height: 90vh;
+    border-radius: 28px 28px 0 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
+    transform: translateY(100%);
+    transition: transform 0.35s var(--ease-smooth);
+}
+
+@media (min-width: 768px) {
+    .modal-card {
+        border-radius: 28px;
+        transform: scale(0.95) translateY(20px);
+    }
+    .modal-overlay.open .modal-card {
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-overlay.open .modal-card {
+    transform: translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 22px;
+    border-bottom: 1px solid var(--border-subtle);
+    position: sticky;
+    top: 0;
+    background: #ffffff;
+    z-index: 10;
+}
+
+.modal-header h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.modal-close-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--bg-alt);
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 22px;
+    overflow-y: auto;
+}
+
+/* Booking Form */
+.form-field {
+    margin-bottom: 16px;
+}
+
+.form-field label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    margin-bottom: 7px;
+}
+
+.form-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.form-chip {
+    padding: 7px 16px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-full);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all var(--duration) ease;
+}
+
+.form-chip.selected {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--border-subtle);
+    background: #faf8f5;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    transition: all var(--duration) ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(184, 138, 56, 0.12);
+}
+
+.booking-summary-strip {
+    background: var(--bg-alt);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.booking-summary-strip .title {
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+}
+
+.booking-summary-strip .price {
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--primary-dark);
+}
+
+/* Expectation & Terms Agreement Box Inside Booking Modal */
+.terms-agreement-box {
+    background: var(--bg-page);
+    border: 1.5px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    margin: 20px 0 22px;
+}
+
+.terms-agreement-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--text-main);
+    cursor: pointer;
+    user-select: none;
+}
+
+.terms-agreement-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary);
+    cursor: pointer;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.terms-agreement-text {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border-subtle);
+}
+
+.btn-send-wa-final {
+    width: 100%;
+    padding: 16px;
+    background: var(--whatsapp);
+    color: #ffffff;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 6px 20px var(--whatsapp-glow);
+    cursor: pointer;
+    transition: all var(--duration) ease;
+}
+
+.btn-send-wa-final:hover {
+    background: var(--whatsapp-dark);
+    transform: translateY(-2px);
+}
+
+/* Sub-Gallery Modal */
+.subgallery-modal-card {
+    max-width: 900px;
+}
+
+.subgallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+@media (min-width: 600px) {
+    .subgallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+}
+
+.sub-item {
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    aspect-ratio: 1;
+    background: #eae3da;
+    cursor: pointer;
+}
+
+.sub-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.sub-item:hover img {
+    transform: scale(1.06);
+}
+
+/* Fullscreen Lightbox */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 8, 6, 0.96);
+    z-index: 3000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.lightbox.open {
+    display: flex;
+}
+
+.lightbox-img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    color: #ffffff;
+    font-size: 1.8rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    cursor: pointer;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    color: #ffffff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.lightbox-nav:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.lightbox-prev { right: 20px; }
+.lightbox-next { left: 20px; }
+
+</style>
+</head>
+
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     NAVIGATION
+     ══════════════════════════════════════════════════ -->
+<header class="navbar" id="navbar">
+    <div class="container nav-container">
+        <!-- Logo -->
+        <a href="#" class="nav-logo" aria-label="שלומי צור דף הבית">
+            <img src="photos/230607 - לוגו.png" alt="שלומי צור צילום אירועים" loading="eager">
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <ul class="nav-links">
+            <li><a href="#about" class="nav-link">אודות</a></li>
+            <li><a href="#gallery" class="nav-link">גלריה</a></li>
+            <li><a href="#calculator" class="nav-link">הצעת מחיר</a></li>
+            <li><a href="#testimonials" class="nav-link">לקוחות מספרים</a></li>
+        </ul>
+
+        <!-- Action / CTA Buttons -->
+        <div class="nav-actions">
+            <a href="https://wa.me/972504773888?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%9C%D7%95%D7%9E%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%A6%D7%99%D7%9C%D7%95%D7%9D" 
+               target="_blank" rel="noopener noreferrer" class="btn-nav-wa" aria-label="וואטסאפ מהיר">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>פנייה מהירה</span>
+            </a>
+            <button class="hamburger-btn" id="openDrawerBtn" aria-label="תפריט ניווט">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Drawer -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="drawer" id="drawer">
+    <div class="drawer-header">
+        <img src="photos/230607 - לוגו.png" alt="לוגו" style="height: 38px;">
+        <button class="drawer-close" id="closeDrawerBtn" aria-label="סגור תפריט">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+    <ul class="drawer-menu">
+        <li><a href="#about" onclick="closeDrawer()"><i class="fa-solid fa-user"></i> אודות</a></li>
+        <li><a href="#gallery" onclick="closeDrawer()"><i class="fa-solid fa-images"></i> גלריה</a></li>
+        <li><a href="#calculator" onclick="closeDrawer()"><i class="fa-solid fa-calculator"></i> הצעת מחיר</a></li>
+        <li><a href="#testimonials" onclick="closeDrawer()"><i class="fa-solid fa-star"></i> לקוחות מספרים</a></li>
+        <li><a href="javascript:void(0)" onclick="openLegalModal(); closeDrawer();"><i class="fa-solid fa-shield-halved"></i> תנאים ונגישות</a></li>
+    </ul>
+</aside>
+
+<!-- ══════════════════════════════════════════════════
+     HERO / ABOUT: COMPACT, CONCISE WITH CIRCULAR PHOTO
+     ══════════════════════════════════════════════════ -->
+<section class="hero-compact" id="about">
+    <div class="container">
+        <div class="hero-box">
+            
+            <!-- Circular Avatar Photo -->
+            <div class="hero-avatar-wrap">
+                <img src="photos/220801 - שלומי.jpg" alt="שלומי צור צלם" class="hero-avatar" loading="eager">
+            </div>
+
+            <!-- Concise Text -->
+            <div class="hero-text-content">
+                <div class="hero-tag">
+                    <i class="fa-solid fa-camera"></i>
+                    <span>שלומי צור • צלם אירועים ומשפחה</span>
+                </div>
+                
+                <h1 class="hero-title">לנצור את הרגעים היפים של החיים.</h1>
+                
+                <p class="hero-desc">
+                    נעים להכיר! עם ניסיון רב, מקצועיות וציוד איכותי, אני כאן כדי להפוך את האירוע שלכם לסיפור מצולם שתרצו לפתוח שוב ושוב. מאמין בגישה רגועה ובשירות אישי, שמאפשרים לכם להרגיש טבעיים ונינוחים מול המצלמה.
+                </p>
+                
+                <div class="hero-btns">
+                    <a href="#calculator" class="btn-hero-primary">
+                        <i class="fa-solid fa-calculator"></i>
+                        <span>הצעת מחיר</span>
+                    </a>
+                    <a href="#gallery" class="btn-hero-secondary">
+                        <i class="fa-solid fa-images"></i>
+                        <span>לגלריה</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     GALLERY: SHUFFLED, SHORT & NO NUMBERING
+     ══════════════════════════════════════════════════ -->
+<section class="gallery-section" id="gallery">
+    <div class="container">
+        <div class="section-head">
+            <span class="section-tag">תיק עבודות</span>
+            <h2 class="section-title">רגעים שנתפסו בעדשה</h2>
+            <p class="section-sub">בחרו קטגוריה ולחצו על אלבום לצפייה בתמונות נוספות</p>
+        </div>
+
+        <!-- Filter Bar (Without any counts) -->
+        <div class="gallery-filter-bar">
+            <button class="filter-chip active" data-filter="all">הכול</button>
+            <button class="filter-chip" data-filter="weddings">חתונות</button>
+            <button class="filter-chip" data-filter="events">אירועים</button>
+            <button class="filter-chip" data-filter="family">משפחה</button>
+        </div>
+
+        <!-- Curated Grid -->
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Dynamically populated via JS -->
+        </div>
+
+        <!-- Load More Action -->
+        <div class="gallery-expand-wrap" id="galleryExpandWrap">
+            <button class="btn-expand-gallery" id="btnToggleMore">
+                <i class="fa-solid fa-arrow-down"></i>
+                <span id="btnToggleMoreText">הצג אלבומים נוספים</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     CALCULATOR: הצעת מחיר מותאמת אישית
+     ══════════════════════════════════════════════════ -->
+<section class="calc-section" id="calculator">
+    <div class="container">
+        <div class="section-head">
+            <span class="section-tag">שקיפות מלאה</span>
+            <h2 class="section-title">הצעת מחיר מותאמת אישית</h2>
+            <p class="section-sub">בחרו שירות, סמנו תוספות רצויות וקבלו סיכום מדויק לשליחה מיידית בוואטסאפ.</p>
+        </div>
+
+        <div class="calc-wrapper">
+            <!-- Touch Tabs -->
+            <div class="calc-nav">
+                <button class="calc-tab active" data-cat="wedding">
+                    <i class="fa-solid fa-ring"></i>
+                    <span>חתונה</span>
+                </button>
+                <button class="calc-tab" data-cat="event">
+                    <i class="fa-solid fa-champagne-glasses"></i>
+                    <span>אירוע</span>
+                </button>
+                <button class="calc-tab" data-cat="family">
+                    <i class="fa-solid fa-users"></i>
+                    <span>משפחה</span>
+                </button>
+                <button class="calc-tab" data-cat="branding">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>תדמית</span>
+                </button>
+                <button class="calc-tab" data-cat="property">
+                    <i class="fa-solid fa-house-chimney"></i>
+                    <span>נכסים</span>
+                </button>
+                <button class="calc-tab" data-cat="conference">
+                    <i class="fa-solid fa-microphone"></i>
+                    <span>כנסים</span>
+                </button>
+            </div>
+
+            <!-- PANEL 1: WEDDING -->
+            <div class="calc-panel active" id="panel-wedding" data-id="wedding" data-name="צילום חתונה" data-base="4500">
+                <div class="panel-header">
+                    <div class="panel-title">חבילת צילום חתונה</div>
+                    <div class="panel-base-pill">4,500 ₪ בסיס</div>
+                </div>
+                <p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:16px;">
+                    כולל צילום סטילס מקבלת הפנים ועד 00:00 (או עד 6 שעות, המוקדם מביניהם) וגלריית ענן פרטית.
+                </p>
+
+                <div class="calc-group-title"><i class="fa-solid fa-plus-circle"></i> שדרוגים ותוספות אפשריות:</div>
+                <div class="option-list">
+                    <div class="option-item" data-price="2500" data-label="צילום וידאו כולל קליפ היילייטס">
+                        <div class="option-right">
+                            <div class="option-checkbox-custom"><i class="fa-solid fa-check"></i></div>
+                            <span class="option-title">צלם וידאו כולל קליפ היילייטס וסרט מלא</span>
+                        </div>
+                        <span class="option-price-tag">+ 2,500 ₪</span>
+                    </div>
+
+                    <div class="option-item" data-price="1500" data-label="צלם סטילס נוסף">
+                        <div class="option-right">
+                            <div class="option-checkbox-custom"><i class="fa-solid fa-check"></i></div>
+                            <span class="option-title">צלם סטילס נוסף (מומלץ לאירועים מעל 350 איש)</span>
+                        </div>
+                        <span class="option-price-tag">+ 1,500 ₪</span>
+                    </div>
+
+                    <div class="option-item" data-price="300" data-label="צילומי הכנות כלה וחתן">
+                        <div class="option-right">
+                            <div class="option-checkbox-custom"><i class="fa-solid fa-check"></i></div>
+                            <span class="option-title">צילומי הכנות כלה וחתן (שעה לפני קבלת פנים)</span>
+                        </div>
+                        <span class="option-price-tag">+ 300 ₪</span>
+                    </div>
+
+                    <div class="option-item" data-price="300" data-label="שעת צילום נוספת (עד 01:00)">
+                        <div class="option-right">
+                            <div class="option-checkbox-custom"><i class="fa-solid fa-check"></i></div>
+                            <span class="option-title">שעת צילום נוספת (עד 01:00 או 7 שעות סה"כ)</span>
+                        </div>
+                        <span class="option-price-tag">+ 300 ₪</span>
+                    </div>
+
+                    <div class="option-item" data-price="800" data-label="אלבום פרימיום גדול 30X80">
+                        <div class="option-right">
+                            <div class="option-checkbox-custom"><i class="fa-solid fa-check"></i></div>
+                            <span class="option-title">אלבום דיגיטלי פרימיום גדול (30X80 פתוח, 30 דפים)</span>
+                        </div>
+                        <span class="option-price-tag">+ 800 ₪</span>
+                    </div>
+
+                    <div class="option-item" data-price="500" data-label="זוג אלבומי הורים מעוצבים">
+                        <div class="option-right">
+                            <div class="option-checkbox-custom"><i class="fa-solid fa-check"></i></div>
+                            <span class="option-title">זוג אלבומי הורים תואמים</span>
+                        </div>
+                        <span class="option-price-tag">+ 500 ₪</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL 2: EVENT -->
+            <div class="calc-panel" id="panel-event" data-id="event" data-name="צילום אירוע" data-base="1500">
+                <div class="panel-header">
+                    <div class="panel-title">חבילת צילום אירוע (בר/בת מצווה, ברית, חינה)</div>
+                    <div class="panel-base-pill">1,500 ₪ בסיס</div>
+                </div>
+                <p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:16px;">
+                    כולל צילום סטילס מקצועי עד 3.5 שעות, מסירת כל התמונות בגלריית ענן מעוצבת.
+                </p>
+
+                <div class="calc-group-title"><i class="fa-solid fa-video"></i> אפשרויות וידאו (לבחירה אחת):</div>
+                <div class="option-list" data-radio-group="event-video">
+                    <div class="option-item radio-option" data-price="500" data-label="צילום וידאו לטקס בלבד">
+                        <div class="option-right">
+                            <div class="option-radio-custom"></div>
+                            <span class="option-title">צילום וידאו לטקס בלבד (עלייה לתורה/ברית)</span>
+                        </div>
+                        <span class="option-price-tag">+ 500 ₪</span>
+                    </div>
+
+                    <div class="option-item radio-option" data-price="800" data-label="צילום וידאו לכל האירוע">
+                        <div class="option-right">
+                            <div class="option-radio-custom"></div>
+                            <span class="option-title">צילום וידאו לכל אורך האירוע (כולל עריכה קלה)</span>
+                        </div>
+                        <span class="option-price-tag">+ 800 ₪</span>
+                    </div>
+
+                    <div class="option-item radio-option" data-price="1500" data-label="צלם וידאו ייעודי נוסף">
+                        <div class="option-right">
+                            <div class="option-radio-custom"></div>
+                            <span class="option-title">צלם וידאו ייעודי נוסף במקביל לסטילס</span>
+                        </div>
+                        <span class="option-price-tag">+ 1,500 ₪</span>
+                    </div>
+
+                    <div class="option-item radio-option" data-price="0" data-label="צילום וידאו בלבד (ללא סטילס)">
+                        <div class="option-right">
+                            <div class="option-radio-custom"></div>
+                            <span class="option-title">צילום וידאו בלבד (החלפת הסטילס בווידאו)</span>
+                        </div>
+                        <span class="option-price-tag">0 ₪</span>
+                    </div>
+                </div>
+
+                <div class="calc-group-title"><i class="fa-solid fa-plus-circle"></i> תוספות נוספות:</div>
+                <div class="option-list">
+                    <div class="option-item" data-price="300" data-label="שעת צילום נוספת (עד 4.5 שעות)">
+                        <div class="option-right">
+                            <div class="option-checkbox-custom"><i class="fa-solid fa-check"></i></div>
+                            <span class="option-title">שעת צילום נוספת (עד 4.5 שעות סה"כ)</span>
+                        </div>
+                        <span class="option-price-tag">+ 300 ₪</span>
+                    </div>
+
+                    <div class="option-item" data-price="1000" data-label="אלבום דיגיטלי יוקרתי">
+                        <div class="option-right">
+                            <div class="option-checkbox-custom"><i class="fa-solid fa-check"></i></div>
+                            <span class="option-title">אלבום דיגיטלי יוקרתי ומעוצב</span>
+                        </div>
+                        <span class="option-price-tag">+ 1,000 ₪</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL 3: FAMILY -->
+            <div class="calc-panel" id="panel-family" data-id="family" data-name="צילומי משפחה" data-base="1000">
+                <div class="panel-header">
+                    <div class="panel-title">צילומי משפחה, היריון, זוגיות או חלאקה</div>
+                    <div class="panel-base-pill">1,000 ₪ בסיס</div>
+                </div>
+                <p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:16px;">
+                    כולל צילומי חוץ/טבע של שעה מלאה, אווירה קלילה וטבעית, ומסירת כל התמונות בענן.
+                </p>
+
+                <div class="calc-group-title"><i class="fa-solid fa-clock"></i> משך הצילומים:</div>
+                <div class="option-list" data-radio-group="family-duration">
+                    <div class="option-item radio-option" data-price="200" data-label="שעה וחצי צילום (סשן מורחב)">
+                        <div class="option-right">
+                            <div class="option-radio-custom"></div>
+                            <span class="option-title">שעה וחצי צילום (סשן מורחב ומגוון לוקיישנים)</span>
+                        </div>
+                        <span class="option-price-tag">+ 200 ₪</span>
+                    </div>
+
+                    <div class="option-item radio-option" data-price="400" data-label="שעתיים צילום (סשן מלא)">
+                        <div class="option-right">
+                            <div class="option-radio-custom"></div>
+                            <span class="option-title">שעתיים צילום (סשן עשיר עם החלפת סטים)</span>
+                        </div>
+                        <span class="option-price-tag">+ 400 ₪</span>
+                    </div>
+                </div>
+
+                <div class="calc-group-title"><i class="fa-solid fa-book-open"></i> הדפסה ומזכרת:</div>
+                <div class="option-list">
+                    <div class="option-item" data-price="1000" data-label="אלבום דיגיטלי יוקרתי">
+                        <div class="option-right">
+                            <div class="option-checkbox-custom"><i class="fa-solid fa-check"></i></div>
+                            <span class="option-title">אלבום דיגיטלי פרימיום מעוצב ומודפס</span>
+                        </div>
+                        <span class="option-price-tag">+ 1,000 ₪</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL 4: BRANDING -->
+            <div class="calc-panel" id="panel-branding" data-id="branding" data-name="צילומי תדמית" data-base="1000">
+                <div class="panel-header">
+                    <div class="panel-title">צילומי תדמית ועסקים</div>
+                    <div class="panel-base-pill">1,000 ₪ בסיס</div>
+                </div>
+                <p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:16px;">
+                    צילום פורטרטים ותדמית עסקית מקצועית (שעה צילום) לשימוש באתר, לינקדאין, רשתות ופרסום.
+                </p>
+
+                <div class="calc-group-title"><i class="fa-solid fa-clock"></i> משך הצילומים:</div>
+                <div class="option-list" data-radio-group="branding-duration">
+                    <div class="option-item radio-option" data-price="200" data-label="שעה וחצי צילום">
+                        <div class="option-right">
+                            <div class="option-radio-custom"></div>
+                            <span class="option-title">שעה וחצי צילום מורחב</span>
+                        </div>
+                        <span class="option-price-tag">+ 200 ₪</span>
+                    </div>
+
+                    <div class="option-item radio-option" data-price="400" data-label="שעתיים צילום">
+                        <div class="option-right">
+                            <div class="option-radio-custom"></div>
+                            <span class="option-title">שעתיים צילום מלא לצוות/עסק</span>
+                        </div>
+                        <span class="option-price-tag">+ 400 ₪</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL 5: PROPERTY -->
+            <div class="calc-panel" id="panel-property">
+                <div class="contact-notice-box">
+                    <i class="fa-solid fa-house-chimney" style="font-size:2.4rem; color:var(--primary); margin-bottom:12px;"></i>
+                    <h3 style="font-size:1.3rem; margin-bottom:8px;">צילום אדריכלות, נכסים ועיצוב פנים</h3>
+                    <p>הצעת המחיר מותאמת אישית לפי גודל הנכס, מיקום ומטרת הצילומים.</p>
+                    <a href="https://wa.me/972504773888?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%9C%D7%95%D7%9E%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%94%D7%A6%D7%A2%D7%AA%20%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%A6%D7%99%D7%9C%D7%95%D7%9D%20%D7%A0%D7%9B%D7%A1%20%D7%90%D7%95%20%D7%90%D7%93%D7%A8%D7%99%D7%9B%D7%9C%D7%95%D7%AA" 
+                       target="_blank" rel="noopener noreferrer" class="btn-proceed-booking" style="display:inline-flex;">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>קבלת הצעה ייעודית בוואטסאפ</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- PANEL 6: CONFERENCE -->
+            <div class="calc-panel" id="panel-conference">
+                <div class="contact-notice-box">
+                    <i class="fa-solid fa-microphone" style="font-size:2.4rem; color:var(--primary); margin-bottom:12px;"></i>
+                    <h3 style="font-size:1.3rem; margin-bottom:8px;">צילום כנסים, הרצאות ואירועי חברה</h3>
+                    <p>הצעת המחיר נבנית בהתאם למספר שעות הכנס, לוח הזמנים ודרישות הכיסוי.</p>
+                    <a href="https://wa.me/972504773888?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%9C%D7%95%D7%9E%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%94%D7%A6%D7%A2%D7%AA%20%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%A6%D7%99%D7%9C%D7%95%D7%9D%20%D7%9B%D7%A0%D7%A1%20%D7%90%D7%95%20%D7%90%D7%99%D7%A8%D7%95%D7%A2%20%D7%97%D7%91%D7%A8%D7%94" 
+                       target="_blank" rel="noopener noreferrer" class="btn-proceed-booking" style="display:inline-flex;">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>פנייה ישירה לתיאום כנס בוואטסאפ</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Live Calculation Footer (for Wedding, Event, Family, Branding) -->
+            <div class="calc-footer" id="calcFooter">
+                <div class="calc-total-box">
+                    <span class="calc-total-label">סה"כ משוער להזמנה:</span>
+                    <span class="calc-total-num" id="calcTotalDisplay">4,500 ₪</span>
+                </div>
+                <button class="btn-proceed-booking" id="btnOpenBookingModal">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>המשך לקבלת הצעת מחיר</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+   TESTIMONIALS (לקוחות מספרים - ללא שמות וסוג)
+   ══════════════════════════════════════════════════ -->
+<section class="reviews-section" id="testimonials">
+    <div class="container">
+        <div class="section-head">
+            <span class="section-tag">מילים חמות</span>
+            <h2 class="section-title">לקוחות מספרים</h2>
+            <p class="section-sub">השמחה שלכם היא ההשראה שלי. הנה חלק ממה שלקוחות כתבו אחרי שקיבלו את התמונות:</p>
+        </div>
+
+        <div class="reviews-grid">
+            <!-- Review 1 -->
+            <div class="review-card">
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-quote">
+                    "שלומי, אתה אמן!!! אין לנו מילים להודות לך, אנחנו לא מפסיקים להתמוגג מהתמונות. אתה מוכשר מאוד, ואין לי ספק שכל הזיכרון המתוק הזה מהשמחה שלנו הוא בזכות התמונות והמקצועיות שלך! הייתה לנו הפתעה אדירה כשראינו עוד המון תמונות שבכלל לא ידענו שצילמת!"
+                </p>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review-card">
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-quote">
+                    "וואו!!! אין לי מילים 💐 היית מעל ומעבר לצלם! השתלבת יפה עם כל האורחים בנעימות, פשטות ומקצועיות. התמונות מדהימות וממש מבטאות את האווירה המדהימה שהייתה במסיבה."
+                </p>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="review-card">
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-quote">
+                    "תודה רבה על התמונות, יצאו מהמם! ישבנו אתמול לעבור עליהן, אחת אחת יפות, ברורות, ותופסות רגעים. ממש מרגש. תודה על הסבלנות לאורך כל האירוע, ועל המזכרת היפה שנשארה לנו מהיום הזה."
+                </p>
+            </div>
+
+            <!-- Review 4 -->
+            <div class="review-card">
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-quote">
+                    "היה כ"כ כיף איתך! באמת! הרגשנו בנוח תמיד לפנות אליך... אנשים לא מפסיקים להגיד כמה היית נחמד לכולם ואיזה כיף שיש אנשים כאלה... באמת תודה רבה רבה על הכול! נמשיך להמליץ בחום ♥"
+                </p>
+            </div>
+
+            <!-- Review 5 -->
+            <div class="review-card">
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-quote">
+                    "תודה רבה על הצילומים! על שהיית נעים וכ"כ אנושי וזרמת איתנו כל היום! מעריכים ומודים מכל הלב 🙏🏻"
+                </p>
+            </div>
+
+            <!-- Review 6 -->
+            <div class="review-card">
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-quote">
+                    "וואו איזה כיף שכ"כ מהר קיבלנו את הגלריה!!! תודה רבה רבה, תמונות פשוט מהממות ומרגשות!"
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════════════ -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="photos/230607 - לוגו.png" alt="שלומי צור צילום">
+                <p class="footer-bio">
+                    שלומי צור – צלם אירועים, חתונות ומשפחה. הופך רגעים אותנטיים לסיפור מצולם שכיף לפתוח שוב ושוב.
+                </p>
+                <div class="social-links">
+                    <a href="https://instagram.com/shlomizur1" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="אינסטגרם">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://facebook.com/1shlomizur" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="פייסבוק">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://youtube.com/@shlomizur" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="יוטיוב">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <a href="https://wa.me/972504773888" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="וואטסאפ">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>ניווט מהיר</h4>
+                <ul class="footer-links">
+                    <li><a href="#about">אודות</a></li>
+                    <li><a href="#gallery">גלריה</a></li>
+                    <li><a href="#calculator">הצעת מחיר</a></li>
+                    <li><a href="#testimonials">לקוחות מספרים</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>יצירת קשר</h4>
+                <ul class="footer-links">
+                    <li><i class="fa-brands fa-whatsapp" style="margin-left:8px; color:var(--whatsapp)"></i> 050-477-3888</li>
+                    <li><i class="fa-solid fa-location-dot" style="margin-left:8px; color:var(--primary)"></i> שירות בכל רחבי הארץ</li>
+                    <li><i class="fa-solid fa-clock" style="margin-left:8px; color:var(--primary)"></i> מענה מהיר בוואטסאפ</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>© <span id="currentYear"></span> שלומי צור – כל הזכויות שמורות.</div>
+            <div class="footer-legal-links">
+                <button type="button" onclick="openLegalModal('terms')">תנאי שימוש</button>
+                <button type="button" onclick="openLegalModal('privacy')">מדיניות פרטיות</button>
+                <button type="button" onclick="openLegalModal('accessibility')">הצהרת נגישות</button>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════
+     FLOATING MOBILE DOCK
+     ══════════════════════════════════════════════════ -->
+<nav class="mobile-dock" aria-label="ניווט תחתון">
+    <a href="#about" class="dock-item">
+        <i class="fa-solid fa-house"></i>
+        <span>ראשי</span>
+    </a>
+    <a href="#gallery" class="dock-item">
+        <i class="fa-solid fa-images"></i>
+        <span>גלריה</span>
+    </a>
+    <a href="#calculator" class="dock-item">
+        <i class="fa-solid fa-calculator"></i>
+        <span>הצעת מחיר</span>
+    </a>
+    <a href="#testimonials" class="dock-item">
+        <i class="fa-solid fa-star"></i>
+        <span>המלצות</span>
+    </a>
+    <a href="https://wa.me/972504773888?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%9C%D7%95%D7%9E%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%A6%D7%99%D7%9C%D7%95%D7%9D" 
+       target="_blank" rel="noopener noreferrer" class="dock-item dock-wa">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>וואטסאפ</span>
+    </a>
+</nav>
+
+<!-- ══════════════════════════════════════════════════
+     MODAL: BOOKING & WHATSAPP GENERATOR
+     ══════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="bookingModal">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3 id="bookingModalTitle">פרטי האירוע לקבלת הצעת מחיר</h3>
+            <button class="modal-close-btn" onclick="closeModal('bookingModal')" aria-label="סגור">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <!-- Dynamic summary -->
+            <div class="booking-summary-strip">
+                <div>
+                    <div style="font-size:0.8rem; color:var(--text-light)">חבילה נבחרת:</div>
+                    <div class="title" id="bookSumService">צילום חתונה</div>
+                </div>
+                <div>
+                    <div style="font-size:0.8rem; color:var(--text-light)">עלות כוללת:</div>
+                    <div class="price" id="bookSumPrice">4,500 ₪</div>
+                </div>
+            </div>
+
+            <!-- Event Subtype Chips -->
+            <div class="form-field" id="eventSubtypeField">
+                <label id="eventSubtypeLabel">סוג האירוע:</label>
+                <div class="form-chips" id="eventSubtypeChips">
+                    <!-- Populated dynamically -->
+                </div>
+                <input type="text" class="form-input" id="subtypeOtherInput" placeholder="פרטו את סוג האירוע..." style="display:none; margin-top:8px;">
+            </div>
+
+            <!-- Date -->
+            <div class="form-field">
+                <label for="bookDateInput">תאריך האירוע / הצילומים:</label>
+                <input type="date" class="form-input" id="bookDateInput">
+            </div>
+
+            <!-- Time -->
+            <div class="form-field">
+                <label for="bookTimeInput">שעת התחלה משוערת:</label>
+                <input type="text" class="form-input" id="bookTimeInput" placeholder="למשל: 18:30 או קבלת פנים">
+            </div>
+
+            <!-- Location -->
+            <div class="form-field">
+                <label for="bookLocInput">מיקום / שם האולם:</label>
+                <input type="text" class="form-input" id="bookLocInput" placeholder="למשל: אולמי שמשון, תל אביב">
+            </div>
+
+            <!-- Notes -->
+            <div class="form-field">
+                <label for="bookNotesInput">הערות נוספות או דגשים מיוחדים:</label>
+                <input type="text" class="form-input" id="bookNotesInput" placeholder="מספר אורחים משוער, בקשות ספציפיות...">
+            </div>
+
+            <!-- EXPECTATIONS & TERMS AGREEMENT CHECKBOX (User requested here) -->
+            <div class="terms-agreement-box">
+                <label class="terms-agreement-label" for="termsAgreementCheckbox">
+                    <input type="checkbox" id="termsAgreementCheckbox" checked>
+                    <span>קראתי ואני מאשר/ת את תיאום הציפיות ותנאי השירות</span>
+                </label>
+                <div class="terms-agreement-text">
+                    התשלום יתבצע בהעברה בנקאית מיד לאחר הצילומים, ולאחריו תישלח קבלה דיגיטלית. התמונות הסופיות יימסרו כגלריה בענן תוך כשבוע, ללא קבצי חומר הגלם. הגלריה תהיה זמינה בענן למשך שנה, אך מומלץ בחום להוריד ולגבות את התמונות בהקדם כדי לשמור עליהן בבטחה. זכויות היוצרים של התמונות נשארות בידי הצלם, וייתכן שימוש במספר תמונות נבחרות לצרכי פרסום ושיווק, ברגישות ובהתחשבות.
+                </div>
+            </div>
+
+            <!-- Send WA Action -->
+            <button class="btn-send-wa-final" onclick="submitBookingToWhatsApp()">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>שליחת הצעת המחיר לוואטסאפ של שלומי</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     MODAL: SUB-GALLERY (VIEW EVENT PHOTOS)
+     ══════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="subGalleryModal">
+    <div class="modal-card subgallery-modal-card">
+        <div class="modal-header">
+            <h3 id="subGalleryTitle">תמונות מהאירוע</h3>
+            <button class="modal-close-btn" onclick="closeModal('subGalleryModal')" aria-label="סגור">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="subgallery-grid" id="subGalleryGrid">
+                <!-- Populated via JS -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     MODAL: LEGAL, PRIVACY & ACCESSIBILITY
+     ══════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="legalModal">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3 id="legalModalTitle">תנאי שימוש, פרטיות ונגישות</h3>
+            <button class="modal-close-btn" onclick="closeModal('legalModal')" aria-label="סגור">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="modal-body" style="font-size:0.95rem; line-height:1.7; color:var(--text-muted);">
+            <div id="legalSectionTerms">
+                <h4 style="color:var(--text-main); margin-bottom:8px; font-size:1.1rem;">תנאי שימוש</h4>
+                <p style="margin-bottom:16px;">
+                    השימוש באתר כפוף לתנאים הבאים, וגלישה מהווה הסכמה מלאה להם. השימוש באתר באחריות המשתמש בלבד, והתכנים מוצגים כפי שהם, ללא אחריות מפורשת או משתמעת. כל זכויות היוצרים על תכנים, תמונות ועיצובים שמורות ואין להעתיק, לשכפל או להפיץ ללא אישור. בעל האתר רשאי לבצע שינויים, עדכונים ותחזוקה בכל עת וללא הודעה מראש. ייתכנו קישורים לאתרים חיצוניים, ואין לבעל האתר אחריות לתכנים או לשימוש בהם.
+                </p>
+            </div>
+
+            <div id="legalSectionPrivacy">
+                <h4 style="color:var(--text-main); margin-bottom:8px; font-size:1.1rem;">מדיניות פרטיות</h4>
+                <p style="margin-bottom:16px;">
+                    האתר עושה שימוש בגוגל אנליטיקס (Google Analytics) לצורך ניתוח תנועה ושיפור חוויית המשתמש, שעשוי לאסוף מידע כגון סוג המכשיר, דפדפן, דפים שנצפו, משך הביקור ומיקום כללי. האתר משתמש בעוגיות (Cookies) לתפקוד תקין ושיפור ביצועים, שניתן לחסום דרך הדפדפן אך חלקים מהאתר עלולים שלא לפעול כראוי. המידע שנאסף משמש לסטטיסטיקה, ניתוח ותפעול האתר בלבד, ואינו נמכר או מועבר לצד שלישי, למעט ספקי שירות טכנולוגיים הדרושים להפעלה. בעל האתר נוקט באמצעים סבירים לאבטחת המידע, אך אינו יכול להבטיח אבטחה מוחלטת. המדיניות עשויה להשתנות, ושימוש באתר לאחר עדכון מהווה הסכמה למדיניות המעודכנת.
+                </p>
+            </div>
+
+            <div id="legalSectionAccessibility">
+                <h4 style="color:var(--text-main); margin-bottom:8px; font-size:1.1rem;">הצהרת נגישות</h4>
+                <p style="margin-bottom:16px;">
+                    האתר מספק חוויית גלישה נגישה לכל המשתמשים, כולל אנשים עם מוגבלות. האתר הונגש בהתאם להנחיות WCAG 2.1 ברמה AA ובהתאם לתקן הישראלי ת"י 5568 ותקנות שוויון זכויות לאנשים עם מוגבלות. האתר מותאם לגלישה בדפדפנים נפוצים, תומך בגלישה באמצעות מקלדת ובטכנולוגיות מסייעות כגון תוכנות הקראת מסך, וכולל מבנה תוכן ברור והתאמה למכשירים שונים. ייתכן שקיימים תכני צד ג' שנגישותם חלקית ואינם בשליטת האתר. הצהרה זו עודכנה לאחרונה בתאריך 01/12/2025.
+                </p>
+                <p><strong>לפנייה בנושא נגישות ובקשות התאמה:</strong></p>
+                <a href="https://wa.me/972504773888?text=%D7%A4%D7%A0%D7%99%D7%99%D7%94%20%D7%91%D7%A0%D7%95%D7%A9%D7%90%20%D7%A0%D7%92%D7%99%D7%A9%D7%95%D7%AA%20%D7%94%D7%90%D7%AA%D7%A8" 
+                   target="_blank" rel="noopener noreferrer" class="btn-proceed-booking" style="margin-top:12px; width:100%;">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>פנייה ישירה לרכז הנגישות</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     LIGHTBOX (IMAGE FULLSCREEN)
+     ══════════════════════════════════════════════════ -->
+<div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="סגור תמונה">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    <button class="lightbox-nav lightbox-prev" onclick="prevLightboxImage()" aria-label="הקודם">
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
+    <button class="lightbox-nav lightbox-next" onclick="nextLightboxImage()" aria-label="הבא">
+        <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <img src="" alt="" class="lightbox-img" id="lightboxImg">
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     JAVASCRIPT LOGIC
+     ══════════════════════════════════════════════════ -->
+<script>
+/* ─── CONSTANTS & CONFIG ─── */
+const WA_PHONE = '972504773888';
+const LEGAL_TERMS_SUMMARY = 'תיאום ציפיות: התשלום יתבצע בהעברה בנקאית מיד לאחר הצילומים, ולאחריו תישלח קבלה דיגיטלית. התמונות הסופיות יימסרו כגלריה בענן תוך כשבוע, ללא קבצי חומר הגלם. הגלריה תהיה זמינה בענן למשך שנה, אך מומלץ בחום להוריד ולגבות את התמונות בהקדם כדי לשמור עליהן בבטחה. זכויות היוצרים של התמונות נשארות בידי הצלם, וייתכן שימוש במספר תמונות נבחרות לצרכי פרסום ושיווק, ברגישות ובהתחשבות.';
+
+/* Helper: sanitize input */
+function sanitize(str) {
+    if (!str) return '';
+    const temp = document.createElement('div');
+    temp.textContent = str;
+    return temp.innerHTML;
+}
+
+// Current Year
+document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+/* ─── NAVBAR & DRAWER ─── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+const drawer = document.getElementById('drawer');
+const drawerOverlay = document.getElementById('drawerOverlay');
+
+function openDrawer() {
+    drawer.classList.add('open');
+    drawerOverlay.classList.add('open');
+    document.body.classList.add('no-scroll');
+}
+
+function closeDrawer() {
+    drawer.classList.remove('open');
+    drawerOverlay.classList.remove('open');
+    document.body.classList.remove('no-scroll');
+}
+
+document.getElementById('openDrawerBtn').addEventListener('click', openDrawer);
+document.getElementById('closeDrawerBtn').addEventListener('click', closeDrawer);
+drawerOverlay.addEventListener('click', closeDrawer);
+
+/* ─── PHOTOS DATA (ALL FILES VERIFIED) ─── */
+const PHOTOS_DATA = {
+    events: [
+        "181127 (46) - cover.jpg","181220 (254) - cover.JPG","190409 (23) - cover.JPG","190411 (20) - cover.JPG",
+        "190905 (60) - cover.jpg","191029 (505) - cover.JPG","210304 (143) - cover.JPG","210311 (22) - cover.JPG",
+        "210505 (93) - cover.JPG","210511 (69) - cover.JPG","220218 (243) - cover.JPG","220404 (112) - cover.JPG",
+        "230306 (181) - cover.JPG","230416 (513) - cover.JPG","230525 (901) - cover.JPG","230616 (685) - cover.JPG",
+        "230928 (241) - cover.JPG","240513 (48) - cover.JPG","240530 (361) - cover.JPG","240601 (397) - cover.jpg",
+        "240715 (1261) - cover.jpg","241202 (1017) - cover.jpg","241211 (256) - cover.jpg","241213 (135) - cover.jpg",
+        "250115 (1404) - cover.jpg","250116 (184) - cover.jpg","250523 (49) - cover.JPG","250926 (161) - cover.JPG",
+        "181127 (320).jpg","181127 (322).jpg","181127 (325).jpg","181127 (37).jpg","181127 (40).jpg","181127 (538).jpg","181127 (553).jpg",
+        "181220 (253).JPG","181220 (375).JPG","190409 (11).JPG","190409 (132).jpg","190409 (25).JPG","190409 (5).JPG",
+        "190411 (22).JPG","190411 (223).JPG","190411 (362).JPG","190411 (50).JPG","190411 (7).JPG",
+        "190905 (13).jpg","190905 (25).jpg","190905 (30).jpg","190905 (49).jpg",
+        "191029 (283).JPG","191029 (300).JPG","191029 (363).JPG","191029 (742).JPG","191029 (75).JPG","191029 (768).JPG","191029 (789).JPG","191029 (79).JPG","191029 (99).JPG",
+        "210304 (131).JPG","210304 (167).JPG","210304 (55).JPG","210304 (757).JPG","210304 (812).JPG","210304 (83).JPG","210304 (96).JPG",
+        "210311 (116).JPG","210311 (169).JPG","210311 (189).JPG","210311 (2).JPG","210311 (214).JPG","210311 (290).JPG","210311 (5).JPG","210311 (9).JPG","210311 (92).JPG",
+        "210505 (264).JPG","210505 (433).JPG","210505 (557).jpg","210505 (82).JPG","210505 (85).JPG",
+        "210511 (10).JPG","210511 (16).JPG","210511 (273).JPG","210511 (299).JPG","210511 (31).JPG","210511 (45).JPG","210511 (78).jpg",
+        "220218 (211).JPG","220218 (215).JPG","220218 (314).JPG","220218 (337).JPG","220218 (713).JPG","220218 (757).JPG","220218 (783).JPG","220218 (785).JPG","220218 (807).JPG",
+        "220404 (100).JPG","220404 (179).JPG","220404 (20).JPG","220404 (263).jpg","220404 (3).JPG","220404 (342).JPG","220404 (349).JPG","220404 (584).JPG","220404 (649).JPG",
+        "230306 (185).JPG","230306 (189).JPG","230306 (32).JPG","230306 (320).JPG","230306 (43).JPG","230306 (452).JPG","230306 (60).JPG","230306 (852).JPG","230306 (992).JPG",
+        "230416 (234).JPG","230416 (317).JPG","230416 (469).JPG","230416 (489).JPG","230416 (517).JPG","230416 (525).JPG","230416 (626).JPG",
+        "230525 (163).JPG","230525 (193).JPG","230525 (288).JPG","230525 (300).JPG","230525 (369).JPG","230525 (770).JPG","230525 (829).JPG","230525 (858).JPG","230525 (913).JPG",
+        "230616 (11).JPG","230616 (126).JPG","230616 (305).JPG","230616 (33).JPG","230616 (388).JPG","230616 (664).JPG","230616 (668).JPG","230616 (761).JPG","230616 (774).JPG",
+        "230928 (123).JPG","230928 (133).JPG","230928 (180).JPG","230928 (224).JPG","230928 (24).JPG","230928 (279).JPG","230928 (505).JPG","230928 (512).JPG","230928 (53).JPG",
+        "240513 (15).JPG","240513 (18).JPG","240513 (241).JPG","240513 (247).JPG","240513 (37).JPG","240513 (371).JPG","240513 (42).JPG","240513 (59).JPG","240513 (590).JPG",
+        "240530 (106).JPG","240530 (281).JPG","240530 (335).JPG","240530 (49).JPG","240530 (54).JPG","240530 (66).JPG","240530 (671).JPG","240530 (69).JPG","240530 (836).JPG",
+        "240601 (291).jpg","240601 (323).jpg","240601 (439).jpg","240601 (443).jpg","240601 (511).jpg","240601 (57).jpg","240601 (636).jpg","240601 (765).jpg","240601 (843).jpg",
+        "240715 (1339).jpg","240715 (1476).jpg","240715 (236).jpg","240715 (251).jpg","240715 (990).jpg",
+        "241202 (204).jpg","241202 (258).jpg","241202 (279).jpg","241202 (692).jpg","241202 (694).jpg","241202 (937).jpg",
+        "241211 (265).jpg","241211 (274).jpg","241211 (356).jpg","241211 (358).jpg","241211 (522).jpg","241211 (564).jpg","241211 (733).jpg","241211 (898).jpg",
+        "241213 (148).jpg","241213 (177).jpg","241213 (511).jpg","241213 (627).jpg","241213 (722).jpg","241213 (810).jpg",
+        "250115 (1165).jpg","250115 (155).jpg","250115 (24).jpg","250115 (31).jpg","250115 (986).jpg",
+        "250116 (152).jpg","250116 (167).jpg","250116 (197).jpg","250116 (258).jpg","250116 (263).jpg","250116 (277).jpg","250116 (300).jpg","250116 (307).jpg","250116 (364).jpg","250116 (378).jpg","250116 (403).jpg",
+        "250523 (118).JPG","250523 (1180).jpg","250523 (121).JPG","250523 (368).JPG","250523 (47).JPG","250523 (57).JPG","250523 (587).jpg","250523 (63).JPG",
+        "250926 (115).JPG","250926 (167).JPG","250926 (173).JPG","250926 (178).JPG","250926 (212).JPG","250926 (332).JPG","250926 (543).JPG","250926 (70).JPG","250926 (72).JPG"
+    ],
+    family: [
+        "201211 (98) - cover.JPG","210611 (49) - cover.JPG","210816 (196) - cover.jpg","230409 (478-2) - cover.jpg","230915 (255) - cover.JPG",
+        "201211 (105).JPG","201211 (12).JPG","201211 (122).jpg","201211 (158).JPG","201211 (31).JPG","201211 (48).JPG","201211 (67).jpg","201211 (70).JPG","201211 (81).JPG",
+        "210611 (119).JPG","210611 (201).JPG","210611 (205).JPG","210611 (281).jpg","210611 (285).jpg","210611 (288).jpg","210611 (7).JPG",
+        "210816 (14).jpg","210816 (21).jpg","210816 (239).jpg","210816 (269).jpg","210816 (340).jpg","210816 (341).jpg","210816 (38).jpg","210816 (6).jpg","210816 (81).jpg",
+        "230409 (108).JPG","230409 (213).JPG","230409 (219).JPG","230409 (433-2).jpg","230409 (437-2).jpg","230409 (578-2).jpg","230409 (637-2).jpg",
+        "230915 (124).JPG","230915 (142).JPG","230915 (188).JPG","230915 (214).JPG","230915 (344).JPG","230915 (394).JPG","230915 (433).JPG"
+    ],
+    weddings: [
+        "170817 (10) - cover.JPG","181125 (150) - cover.jpg","190131 (164) - cover.JPG","190403 (10) - cover.JPG","190407 (2) - cover.JPG","230201 (3) - cover.jpg","240704 (2) - cover.jpg",
+        "170817 (1).JPG","170817 (2).JPG","170817 (3).JPG","170817 (4).JPG","170817 (5).JPG","170817 (6).JPG","170817 (7).JPG","170817 (8).JPG","170817 (9).JPG",
+        "181125 (102).jpg","181125 (115).jpg","181125 (131).jpg","181125 (136).jpg","181125 (152).jpg","181125 (155).jpg","181125 (160).jpg","181125 (192).jpg",
+        "190131 (108).JPG","190131 (129).JPG","190131 (142).JPG","190131 (149).JPG","190131 (154).JPG","190131 (162).jpg","190131 (175)-2.jpg","190131 (177).jpg",
+        "190403 (1).JPG","190403 (2) - 2.jpg","190403 (3).JPG","190403 (4).JPG","190403 (5).JPG","190403 (6).JPG","190403 (7).JPG","190403 (8).JPG","190403 (9).JPG",
+        "190407 (1).JPG","190407 (3).JPG","190407 (4).JPG","190407 (5).JPG","190407 (6).JPG",
+        "230201 (1).jpg","230201 (2).jpg",
+        "240704 (1).jpg","240704 (3).jpg","240704 (4).jpg","240704 (5).jpg","240704 (6).jpg","240704 (7).jpg"
+    ]
+};
+
+const CATEGORY_HEB = {
+    weddings: 'חתונה',
+    events: 'אירוע',
+    family: 'משפחה'
+};
+
+// Shuffling helper
+function shuffleArray(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
+// Process gallery index
+let ALL_COVERS = { weddings: [], events: [], family: [] };
+let ALL_PHOTOS = [];
+
+function buildGalleryData() {
+    ALL_COVERS = { weddings: [], events: [], family: [] };
+    ALL_PHOTOS = [];
+
+    ['weddings', 'events', 'family'].forEach(cat => {
+        (PHOTOS_DATA[cat] || []).forEach(fn => {
+            const isCover = fn.includes('- cover');
+            const eid = fn.match(/^\d{6}/)?.[0] || fn.substring(0,6);
+            const path = 'photos/' + cat + '/' + encodeURIComponent(fn);
+            const item = { cat, fn, path, isCover, eid };
+            ALL_PHOTOS.push(item);
+            if (isCover) {
+                ALL_COVERS[cat].push(item);
+            }
+        });
+    });
+}
+
+/* ─── GALLERY DISPLAY (Randomized rules: 2 weddings, 2 family, 4 events initially) ─── */
+let currentCategory = 'all';
+let currentLoadedItems = [];
+let remainingPool = { weddings: [], events: [], family: [] };
+
+function resetAndRenderAll() {
+    // Shuffle covers in each category
+    const shufWeddings = shuffleArray(ALL_COVERS.weddings);
+    const shufFamily = shuffleArray(ALL_COVERS.family);
+    const shufEvents = shuffleArray(ALL_COVERS.events);
+
+    // Initial 8 items rule: 2 weddings, 2 family, 4 events
+    const initWeddings = shufWeddings.slice(0, 2);
+    const initFamily = shufFamily.slice(0, 2);
+    const initEvents = shufEvents.slice(0, 4);
+
+    // Save remaining pool for "הצג אלבומים נוספים"
+    remainingPool = {
+        weddings: shufWeddings.slice(2),
+        family: shufFamily.slice(2),
+        events: shufEvents.slice(4)
+    };
+
+    // Combine and shuffle the initial 8 items
+    currentLoadedItems = shuffleArray([...initWeddings, ...initFamily, ...initEvents]);
+    renderCurrentGrid();
+
+    // Enable button
+    const expandWrap = document.getElementById('galleryExpandWrap');
+    expandWrap.style.display = 'block';
+    document.getElementById('btnToggleMoreText').textContent = 'הצג אלבומים נוספים';
+}
+
+function loadMoreAllAlbums() {
+    // Next 12 albums rule: 5 weddings, 2 family, 5 events
+    const moreWeddings = remainingPool.weddings.slice(0, 5);
+    const moreFamily = remainingPool.family.slice(0, 2);
+    const moreEvents = remainingPool.events.slice(0, 5);
+
+    const next12 = shuffleArray([...moreWeddings, ...moreFamily, ...moreEvents]);
+    currentLoadedItems = [...currentLoadedItems, ...next12];
+
+    renderCurrentGrid();
+
+    // Hide button once expanded
+    document.getElementById('galleryExpandWrap').style.display = 'none';
+}
+
+function renderCategoryOnly(cat) {
+    const shuf = shuffleArray(ALL_COVERS[cat]);
+    currentLoadedItems = shuf;
+    renderCurrentGrid();
+    document.getElementById('galleryExpandWrap').style.display = 'none';
+}
+
+function renderCurrentGrid() {
+    const grid = document.getElementById('galleryGrid');
+    grid.innerHTML = '';
+
+    currentLoadedItems.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'album-card';
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-label', `אלבום ${CATEGORY_HEB[item.cat]}`);
+        card.onclick = () => openSubGallery(item.eid, item.cat);
+        card.onkeydown = (e) => { if (e.key === 'Enter') openSubGallery(item.eid, item.cat); };
+
+        card.innerHTML = `
+            <img src="${item.path}" alt="${CATEGORY_HEB[item.cat]}" loading="lazy">
+            <div class="album-overlay">
+                <span class="album-badge">${CATEGORY_HEB[item.cat]}</span>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+// Category filter tabs
+document.querySelectorAll('.filter-chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCategory = btn.getAttribute('data-filter');
+
+        if (currentCategory === 'all') {
+            resetAndRenderAll();
+        } else {
+            renderCategoryOnly(currentCategory);
+        }
+    });
+});
+
+document.getElementById('btnToggleMore').addEventListener('click', () => {
+    if (currentCategory === 'all') {
+        loadMoreAllAlbums();
+    }
+});
+
+/* ─── SUB-GALLERY MODAL & LIGHTBOX (No numbers) ─── */
+let currentSubPhotos = [];
+let lightboxIndex = 0;
+
+function openSubGallery(eid, cat) {
+    currentSubPhotos = ALL_PHOTOS.filter(p => p.eid === eid && p.cat === cat);
+    const grid = document.getElementById('subGalleryGrid');
+    grid.innerHTML = '';
+
+    // No numbering in sub-gallery title!
+    document.getElementById('subGalleryTitle').textContent = `אלבום ${CATEGORY_HEB[cat]}`;
+
+    currentSubPhotos.forEach((item, index) => {
+        const d = document.createElement('div');
+        d.className = 'sub-item';
+        d.innerHTML = `<img src="${item.path}" alt="תמונה" loading="lazy">`;
+        d.onclick = () => openLightbox(index);
+        grid.appendChild(d);
+    });
+
+    openModal('subGalleryModal');
+}
+
+function openLightbox(index) {
+    if (!currentSubPhotos || !currentSubPhotos.length) return;
+    lightboxIndex = index;
+    const img = document.getElementById('lightboxImg');
+    img.src = currentSubPhotos[lightboxIndex].path;
+    document.getElementById('lightbox').classList.add('open');
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+}
+
+function nextLightboxImage() {
+    if (!currentSubPhotos.length) return;
+    lightboxIndex = (lightboxIndex + 1) % currentSubPhotos.length;
+    document.getElementById('lightboxImg').src = currentSubPhotos[lightboxIndex].path;
+}
+
+function prevLightboxImage() {
+    if (!currentSubPhotos.length) return;
+    lightboxIndex = (lightboxIndex - 1 + currentSubPhotos.length) % currentSubPhotos.length;
+    document.getElementById('lightboxImg').src = currentSubPhotos[lightboxIndex].path;
+}
+
+document.addEventListener('keydown', (e) => {
+    if (document.getElementById('lightbox').classList.contains('open')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') nextLightboxImage();
+        if (e.key === 'ArrowRight') prevLightboxImage();
+    }
+});
+
+/* ─── CALCULATOR / הצעת מחיר ENGINE ─── */
+let activeCategory = 'wedding';
+
+// Tab switching
+document.querySelectorAll('.calc-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.calc-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        activeCategory = tab.getAttribute('data-cat');
+        document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
+        
+        const targetPanel = document.getElementById('panel-' + activeCategory);
+        if (targetPanel) {
+            targetPanel.classList.add('active');
+        }
+
+        // Toggle footer visibility for contact-only panels
+        const footer = document.getElementById('calcFooter');
+        if (activeCategory === 'property' || activeCategory === 'conference') {
+            footer.style.display = 'none';
+        } else {
+            footer.style.display = 'flex';
+            updateCalculation();
+        }
+    });
+});
+
+// Option Item Clicks
+document.querySelectorAll('.calc-panel').forEach(panel => {
+    // Checkboxes
+    panel.querySelectorAll('.option-item:not(.radio-option)').forEach(item => {
+        item.addEventListener('click', () => {
+            item.classList.toggle('selected');
+            updateCalculation();
+        });
+    });
+
+    // Radio Options (support deselect / toggle)
+    panel.querySelectorAll('.radio-option').forEach(radio => {
+        radio.addEventListener('click', () => {
+            const parentList = radio.closest('.option-list');
+            const wasSelected = radio.classList.contains('selected');
+
+            // unselect peers
+            parentList.querySelectorAll('.radio-option').forEach(r => r.classList.remove('selected'));
+
+            if (!wasSelected) {
+                radio.classList.add('selected');
+            }
+            updateCalculation();
+        });
+    });
+});
+
+function getActiveCalculation() {
+    const panel = document.getElementById('panel-' + activeCategory);
+    if (!panel) return { total: 0, serviceName: '', extras: [] };
+
+    const basePrice = parseInt(panel.getAttribute('data-base') || '0', 10);
+    let serviceName = panel.getAttribute('data-name') || '';
+    let total = basePrice;
+    let extras = [];
+    let isVideoOnly = false;
+
+    panel.querySelectorAll('.option-item.selected').forEach(item => {
+        const price = parseInt(item.getAttribute('data-price') || '0', 10);
+        const label = item.getAttribute('data-label') || '';
+        total += price;
+
+        if (label.includes('וידאו בלבד')) {
+            isVideoOnly = true;
+        } else if (label) {
+            extras.push(label);
+        }
+    });
+
+    if (isVideoOnly) {
+        serviceName = 'צילום וידאו לאירוע';
+    }
+
+    return { total, serviceName, extras, basePrice, id: activeCategory };
+}
+
+function updateCalculation() {
+    const calc = getActiveCalculation();
+    const display = document.getElementById('calcTotalDisplay');
+    if (display) {
+        display.textContent = calc.total.toLocaleString() + ' ₪';
+    }
+}
+
+/* ─── BOOKING MODAL & CHIPS ─── */
+let currentBookingData = {};
+
+document.getElementById('btnOpenBookingModal').addEventListener('click', () => {
+    const calc = getActiveCalculation();
+    currentBookingData = { ...calc, subtype: '' };
+
+    // Set UI labels
+    document.getElementById('bookSumService').textContent = calc.serviceName + (calc.extras.length ? ` (+${calc.extras.length} תוספות)` : '');
+    document.getElementById('bookSumPrice').textContent = calc.total.toLocaleString() + ' ₪';
+
+    const modalTitle = document.getElementById('bookingModalTitle');
+    const subtypeLabel = document.getElementById('eventSubtypeLabel');
+    const subtypeWrapper = document.getElementById('eventSubtypeField');
+    const chipsContainer = document.getElementById('eventSubtypeChips');
+    const otherInput = document.getElementById('subtypeOtherInput');
+
+    chipsContainer.innerHTML = '';
+    otherInput.style.display = 'none';
+    otherInput.value = '';
+
+    if (calc.id === 'wedding') {
+        modalTitle.textContent = 'פרטי החתונה לקבלת הצעת מחיר';
+        subtypeWrapper.style.display = 'none';
+        currentBookingData.subtype = 'חתונה';
+    } else {
+        subtypeWrapper.style.display = 'block';
+        let options = [];
+
+        if (calc.id === 'event') {
+            modalTitle.textContent = 'פרטי האירוע לקבלת הצעת מחיר';
+            subtypeLabel.textContent = 'סוג האירוע:';
+            options = ['אירוסין', 'בר מצווה', 'בת מצווה', 'ברית מילה', 'זבד הבת', 'פדיון הבן', 'אחר'];
+        } else if (calc.id === 'family') {
+            modalTitle.textContent = 'פרטי צילומי המשפחה';
+            subtypeLabel.textContent = 'סוג הצילומים:';
+            options = ['צילומי משפחה', 'זוגיות', 'היריון', 'ניו בורן', 'גיל שנה', 'חלאקה', 'בוק בר מצווה', 'בוק בת מצווה', 'אחר'];
+        } else if (calc.id === 'branding') {
+            modalTitle.textContent = 'פרטי צילומי התדמית';
+            subtypeLabel.textContent = 'סוג הפרויקט:';
+            options = ['אדם יחיד', 'עסק פרטי', 'צוות עובדים', 'אחר'];
+        }
+
+        options.forEach(opt => {
+            const chip = document.createElement('button');
+            chip.type = 'button';
+            chip.className = 'form-chip';
+            chip.textContent = opt;
+            chip.onclick = () => {
+                chipsContainer.querySelectorAll('.form-chip').forEach(c => c.classList.remove('selected'));
+                chip.classList.add('selected');
+                currentBookingData.subtype = opt;
+                otherInput.style.display = opt === 'אחר' ? 'block' : 'none';
+            };
+            chipsContainer.appendChild(chip);
+        });
+    }
+
+    openModal('bookingModal');
+});
+
+function submitBookingToWhatsApp() {
+    // Check confirmation of terms
+    const agreementCheckbox = document.getElementById('termsAgreementCheckbox');
+    if (agreementCheckbox && !agreementCheckbox.checked) {
+        alert('יש לסמן את תיבת אישור תיאום הציפיות ותנאי השירות לפני השליחה.');
+        agreementCheckbox.focus();
+        return;
+    }
+
+    const rawDate = document.getElementById('bookDateInput').value;
+    const time = sanitize(document.getElementById('bookTimeInput').value) || 'לא צוין';
+    const loc = sanitize(document.getElementById('bookLocInput').value) || 'לא צוין';
+    const notes = sanitize(document.getElementById('bookNotesInput').value) || 'אין';
+
+    let subtype = currentBookingData.subtype;
+    if (subtype === 'אחר') {
+        subtype = sanitize(document.getElementById('subtypeOtherInput').value) || 'אחר';
+    }
+
+    // Format Date: DD/MM/YY
+    let formattedDate = 'לא צוין';
+    if (rawDate) {
+        const parts = rawDate.split('-');
+        if (parts.length === 3) {
+            formattedDate = `${parts[2]}/${parts[1]}/${parts[0].slice(2)}`;
+        }
+    }
+
+    // Determine Duration string based on category and extras
+    let duration = '';
+    const id = currentBookingData.id;
+    const extras = currentBookingData.extras || [];
+
+    if (id === 'wedding') {
+        const hasExtraHour = extras.some(e => e.includes('שעת צילום נוספת'));
+        duration = hasExtraHour 
+            ? 'עד 7 שעות מקבלת הפנים (או 01:00, המוקדם מביניהם)'
+            : 'עד 6 שעות מקבלת הפנים (או 00:00, המוקדם מביניהם)';
+    } else if (id === 'event') {
+        const hasExtraHour = extras.some(e => e.includes('שעת צילום נוספת'));
+        duration = hasExtraHour ? 'עד 4.5 שעות' : 'עד 3.5 שעות';
+    } else if (id === 'family' || id === 'branding') {
+        if (extras.some(e => e.includes('שעתיים'))) {
+            duration = 'שעתיים';
+        } else if (extras.some(e => e.includes('שעה וחצי'))) {
+            duration = 'שעה וחצי';
+        } else {
+            duration = 'שעה אחת';
+        }
+    }
+
+    // Build WhatsApp message
+    let message = `*היי שלומי, מעוניין/ת לקבל הצעת מחיר ולשריין צילום!*\n\n`;
+    message += `📋 *סיכום ההצעה:*\n`;
+    message += `📷 *שירות:* ${currentBookingData.serviceName}\n`;
+    if (duration) message += `🕒 *משך:* ${duration}\n`;
+    if (extras.length) message += `➕ *תוספות:* ${extras.join(', ')}\n`;
+    message += `💰 *עלות כוללת:* ${currentBookingData.total.toLocaleString()} ₪\n\n`;
+
+    if (id !== 'wedding' && subtype) {
+        const label = (id === 'family' || id === 'branding') ? 'סוג הצילומים' : 'סוג האירוע';
+        message += `🏷️ *${label}:* ${subtype}\n`;
+    }
+
+    message += `🗓️ *תאריך:* ${formattedDate}\n`;
+    message += `⏰ *שעה:* ${time}\n`;
+    message += `📍 *מקום:* ${loc}\n`;
+    message += `📝 *הערות:* ${notes}\n\n`;
+    message += `${LEGAL_TERMS_SUMMARY}\n\n`;
+    message += `קראתי ואני מאשר/ת.`;
+
+    const url = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+    closeModal('bookingModal');
+}
+
+/* ─── MODAL CONTROLLERS ─── */
+function openModal(modalId) {
+    const el = document.getElementById(modalId);
+    if (el) {
+        el.classList.add('open');
+        document.body.classList.add('no-scroll');
+    }
+}
+
+function closeModal(modalId) {
+    const el = document.getElementById(modalId);
+    if (el) {
+        el.classList.remove('open');
+        document.body.classList.remove('no-scroll');
+    }
+}
+
+['bookingModal', 'subGalleryModal', 'legalModal'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+        el.addEventListener('click', function(e) {
+            if (e.target === this) closeModal(id);
+        });
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        ['bookingModal', 'subGalleryModal', 'legalModal'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el && el.classList.contains('open')) closeModal(id);
+        });
+        closeDrawer();
+    }
+});
+
+function openLegalModal(section) {
+    openModal('legalModal');
+    if (section) {
+        const target = document.getElementById('legalSection' + section.charAt(0).toUpperCase() + section.slice(1));
+        if (target) {
+            setTimeout(() => target.scrollIntoView({ behavior: 'smooth' }), 100);
+        }
+    }
+}
+
+/* ─── INITIALIZATION ─── */
+document.addEventListener('DOMContentLoaded', () => {
+    buildGalleryData();
+    resetAndRenderAll();
+    updateCalculation();
+});
+</script>
+
+</body>
+</html>
