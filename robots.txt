@@ -1,0 +1,34 @@
+# Robots.txt for shlomizur.com
+
+# Standard Search Engines (Google, Bing, Apple) - Full indexing allowed
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: Applebot
+Allow: /
+
+# AI Search & Retrieval Assistants (Allow reading site content, Disallow photo harvesting)
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: PerplexityBot
+User-agent: Google-Extended
+User-agent: FacebookBot
+Allow: /
+Disallow: /photos/
+
+# Known Bulk Image Scrapers & Dataset Harvesters
+User-agent: CCBot
+User-agent: Bytespider
+User-agent: Diffbot
+User-agent: img2dataset
+Disallow: /photos/
+
+# Default for all other crawlers
+User-agent: *
+Allow: /
+Disallow: /photos/*.jpg
+Disallow: /photos/*.JPG
+Disallow: /photos/*.png
+
+Sitemap: https://shlomizur.com/sitemap.xml
