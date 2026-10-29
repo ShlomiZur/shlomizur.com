@@ -93,6 +93,33 @@ i::before, .fa::before, [class*="fa-"]::before {
     font-family: inherit !important;
 }
 
+/* Accessibility Focus Visible */
+:focus-visible {
+    outline: 3px solid var(--primary) !important;
+    outline-offset: 3px !important;
+}
+
+/* Skip to Content Link */
+.skip-link {
+    position: absolute;
+    top: -70px;
+    right: 20px;
+    background: var(--text-main);
+    color: #ffffff;
+    padding: 12px 22px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 0.95rem;
+    z-index: 10000;
+    transition: top 0.25s ease;
+    text-decoration: none;
+    border: 2px solid var(--primary);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.skip-link:focus {
+    top: 15px;
+}
+
 html {
     scroll-behavior: smooth;
     font-size: 16px;
@@ -487,7 +514,7 @@ button {
 }
 
 /* ══════════════════════════════════════════════════
-   GALLERY SECTION (SHUFFLED, SHORT, NO NUMBERING)
+   GALLERY SECTION (CLEAN CARDS - NO LABELS)
    ══════════════════════════════════════════════════ */
 .gallery-section {
     padding: 50px 0 60px;
@@ -524,7 +551,7 @@ button {
     margin-top: 8px;
 }
 
-/* Filter Bar (No count badges) */
+/* Filter Bar */
 .gallery-filter-bar {
     display: flex;
     justify-content: center;
@@ -605,30 +632,6 @@ button {
     transform: scale(1.05);
 }
 
-.album-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(15, 12, 10, 0.72) 0%, rgba(15, 12, 10, 0.05) 50%, rgba(0,0,0,0) 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 14px;
-    color: #ffffff;
-}
-
-.album-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    background: rgba(255, 255, 255, 0.22);
-    backdrop-filter: blur(6px);
-    font-size: 0.8rem;
-    font-weight: 600;
-    padding: 4px 12px;
-    border-radius: var(--radius-full);
-    align-self: flex-start;
-}
-
 /* Load More Bar */
 .gallery-expand-wrap {
     text-align: center;
@@ -674,7 +677,7 @@ button {
     overflow: hidden;
 }
 
-/* Category Selection Bar (Touch Tabs) */
+/* Category Selection Bar (Touch Tabs with Tablist role) */
 .calc-nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -787,7 +790,7 @@ button {
     color: var(--primary);
 }
 
-/* Option Cards */
+/* Option Cards (Keyboard accessible) */
 .option-list {
     display: flex;
     flex-direction: column;
@@ -1119,16 +1122,16 @@ button {
 
 .footer-legal-links {
     display: flex;
-    gap: 16px;
+    gap: 18px;
 }
 
-.footer-legal-links button {
+.footer-legal-links a {
     color: #a89f95;
     font-size: 0.85rem;
     text-decoration: underline;
 }
 
-.footer-legal-links button:hover {
+.footer-legal-links a:hover {
     color: #ffffff;
 }
 
@@ -1359,27 +1362,54 @@ button {
     color: var(--primary-dark);
 }
 
-/* Expectation & Terms Agreement Box Inside Booking Modal */
-.terms-agreement-box {
+/* EXPECTATIONS & TERMS BOX INSIDE BOOKING MODAL */
+.expectations-terms-box {
     background: var(--bg-page);
     border: 1.5px solid var(--border-strong);
     border-radius: var(--radius-md);
-    padding: 16px;
+    padding: 18px;
     margin: 20px 0 22px;
 }
 
-.terms-agreement-label {
+.expectations-box-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 10px;
+}
+
+.expectations-box-title i {
+    color: var(--primary);
+}
+
+.expectations-box-body {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px dashed var(--border-subtle);
+}
+
+.required-checkbox-label {
     display: flex;
     align-items: flex-start;
     gap: 10px;
-    font-size: 0.92rem;
-    font-weight: 700;
+    font-size: 0.88rem;
     color: var(--text-main);
     cursor: pointer;
     user-select: none;
+    margin-bottom: 12px;
 }
 
-.terms-agreement-label input[type="checkbox"] {
+.required-checkbox-label:last-child {
+    margin-bottom: 0;
+}
+
+.required-checkbox-label input[type="checkbox"] {
     width: 20px;
     height: 20px;
     accent-color: var(--primary);
@@ -1388,13 +1418,14 @@ button {
     flex-shrink: 0;
 }
 
-.terms-agreement-text {
-    margin-top: 10px;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    padding-top: 10px;
-    border-top: 1px dashed var(--border-subtle);
+.required-checkbox-label a {
+    color: var(--primary-dark);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.required-checkbox-label a:hover {
+    color: var(--text-main);
 }
 
 .btn-send-wa-final {
@@ -1525,33 +1556,38 @@ button {
 
 <body>
 
+<!-- Skip Link for Accessibility -->
+<a href="#main-content" class="skip-link">דלג לתוכן מרכזי</a>
+
 <!-- ══════════════════════════════════════════════════
      NAVIGATION
      ══════════════════════════════════════════════════ -->
-<header class="navbar" id="navbar">
+<header class="navbar" id="navbar" role="banner">
     <div class="container nav-container">
         <!-- Logo -->
         <a href="#" class="nav-logo" aria-label="שלומי צור דף הבית">
-            <img src="photos/230607 - לוגו.png" alt="שלומי צור צילום אירועים" loading="eager">
+            <img src="photos/230607 - לוגו.png" alt="שלומי צור צילום אירועים ומשפחה" loading="eager">
         </a>
 
         <!-- Desktop Navigation Links -->
-        <ul class="nav-links">
-            <li><a href="#about" class="nav-link">אודות</a></li>
-            <li><a href="#gallery" class="nav-link">גלריה</a></li>
-            <li><a href="#calculator" class="nav-link">הצעת מחיר</a></li>
-            <li><a href="#testimonials" class="nav-link">לקוחות מספרים</a></li>
-        </ul>
+        <nav aria-label="ניווט ראשי">
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">אודות</a></li>
+                <li><a href="#gallery" class="nav-link">גלריה</a></li>
+                <li><a href="#calculator" class="nav-link">הצעת מחיר</a></li>
+                <li><a href="#testimonials" class="nav-link">לקוחות מספרים</a></li>
+            </ul>
+        </nav>
 
         <!-- Action / CTA Buttons -->
         <div class="nav-actions">
             <a href="https://wa.me/972504773888?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%9C%D7%95%D7%9E%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%A6%D7%99%D7%9C%D7%95%D7%9D" 
-               target="_blank" rel="noopener noreferrer" class="btn-nav-wa" aria-label="וואטסאפ מהיר">
-                <i class="fa-brands fa-whatsapp"></i>
+               target="_blank" rel="noopener noreferrer" class="btn-nav-wa" aria-label="פנייה מהירה בוואטסאפ (נפתח בחלון חדש)">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
                 <span>פנייה מהירה</span>
             </a>
-            <button class="hamburger-btn" id="openDrawerBtn" aria-label="תפריט ניווט">
-                <i class="fa-solid fa-bars"></i>
+            <button class="hamburger-btn" id="openDrawerBtn" aria-label="פתיחת תפריט ניווט" aria-expanded="false" aria-controls="drawer">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
             </button>
         </div>
     </div>
@@ -1559,477 +1595,470 @@ button {
 
 <!-- Mobile Drawer -->
 <div class="drawer-overlay" id="drawerOverlay"></div>
-<aside class="drawer" id="drawer">
+<aside class="drawer" id="drawer" aria-label="תפריט נייד">
     <div class="drawer-header">
-        <img src="photos/230607 - לוגו.png" alt="לוגו" style="height: 38px;">
-        <button class="drawer-close" id="closeDrawerBtn" aria-label="סגור תפריט">
-            <i class="fa-solid fa-xmark"></i>
+        <img src="photos/230607 - לוגו.png" alt="לוגו שלומי צור" style="height: 38px;">
+        <button class="drawer-close" id="closeDrawerBtn" aria-label="סגירת תפריט ניווט">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
         </button>
     </div>
     <ul class="drawer-menu">
-        <li><a href="#about" onclick="closeDrawer()"><i class="fa-solid fa-user"></i> אודות</a></li>
-        <li><a href="#gallery" onclick="closeDrawer()"><i class="fa-solid fa-images"></i> גלריה</a></li>
-        <li><a href="#calculator" onclick="closeDrawer()"><i class="fa-solid fa-calculator"></i> הצעת מחיר</a></li>
-        <li><a href="#testimonials" onclick="closeDrawer()"><i class="fa-solid fa-star"></i> לקוחות מספרים</a></li>
-        <li><a href="javascript:void(0)" onclick="openLegalModal(); closeDrawer();"><i class="fa-solid fa-shield-halved"></i> תנאים ונגישות</a></li>
+        <li><a href="#about" onclick="closeDrawer()"><i class="fa-solid fa-user" aria-hidden="true"></i> אודות</a></li>
+        <li><a href="#gallery" onclick="closeDrawer()"><i class="fa-solid fa-images" aria-hidden="true"></i> גלריה</a></li>
+        <li><a href="#calculator" onclick="closeDrawer()"><i class="fa-solid fa-calculator" aria-hidden="true"></i> הצעת מחיר</a></li>
+        <li><a href="#testimonials" onclick="closeDrawer()"><i class="fa-solid fa-star" aria-hidden="true"></i> לקוחות מספרים</a></li>
+        <li><a href="terms" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-contract" aria-hidden="true"></i> תנאי שימוש</a></li>
+        <li><a href="privacy" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-user-shield" aria-hidden="true"></i> מדיניות פרטיות</a></li>
+        <li><a href="accessibility" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-universal-access" aria-hidden="true"></i> הצהרת נגישות</a></li>
     </ul>
 </aside>
 
 <!-- ══════════════════════════════════════════════════
-     HERO / ABOUT: COMPACT, CONCISE WITH CIRCULAR PHOTO
+     MAIN LANDMARK FOR SCREEN READERS
      ══════════════════════════════════════════════════ -->
-<section class="hero-compact" id="about">
-    <div class="container">
-        <div class="hero-box">
-            
-            <!-- Circular Avatar Photo -->
-            <div class="hero-avatar-wrap">
-                <img src="photos/220801 - שלומי.jpg" alt="שלומי צור צלם" class="hero-avatar" loading="eager">
-            </div>
+<main id="main-content" role="main">
 
-            <!-- Concise Text -->
-            <div class="hero-text-content">
-                <div class="hero-tag">
-                    <i class="fa-solid fa-camera"></i>
-                    <span>שלומי צור • צלם אירועים ומשפחה</span>
-                </div>
+    <!-- ══════════════════════════════════════════════════
+         HERO / ABOUT: COMPACT, CONCISE WITH CIRCULAR PHOTO
+         ══════════════════════════════════════════════════ -->
+    <section class="hero-compact" id="about" aria-labelledby="hero-main-title">
+        <div class="container">
+            <div class="hero-box">
                 
-                <h1 class="hero-title">לנצור את הרגעים היפים של החיים.</h1>
-                
-                <p class="hero-desc">
-                    נעים להכיר! עם ניסיון רב, מקצועיות וציוד איכותי, אני כאן כדי להפוך את האירוע שלכם לסיפור מצולם שתרצו לפתוח שוב ושוב. מאמין בגישה רגועה ובשירות אישי, שמאפשרים לכם להרגיש טבעיים ונינוחים מול המצלמה.
-                </p>
-                
-                <div class="hero-btns">
-                    <a href="#calculator" class="btn-hero-primary">
-                        <i class="fa-solid fa-calculator"></i>
-                        <span>הצעת מחיר</span>
-                    </a>
-                    <a href="#gallery" class="btn-hero-secondary">
-                        <i class="fa-solid fa-images"></i>
-                        <span>לגלריה</span>
-                    </a>
+                <!-- Circular Avatar Photo -->
+                <div class="hero-avatar-wrap">
+                    <img src="photos/220801 - שלומי.jpg" alt="שלומי צור – צלם אירועים ומשפחה" class="hero-avatar" loading="eager">
                 </div>
+
+                <!-- Concise Text -->
+                <div class="hero-text-content">
+                    <div class="hero-tag">
+                        <i class="fa-solid fa-camera" aria-hidden="true"></i>
+                        <span>שלומי צור • צלם אירועים ומשפחה</span>
+                    </div>
+                    
+                    <h1 class="hero-title" id="hero-main-title">לנצור את הרגעים היפים של החיים.</h1>
+                    
+                    <p class="hero-desc">
+                        נעים להכיר! עם ניסיון רב, מקצועיות וציוד איכותי, אני כאן כדי להפוך את האירוע שלכם לסיפור מצולם שתרצו לפתוח שוב ושוב. מאמין בגישה רגועה ובשירות אישי, שמאפשרים לכם להרגיש טבעיים ונינוחים מול המצלמה.
+                    </p>
+                    
+                    <div class="hero-btns">
+                        <a href="#calculator" class="btn-hero-primary">
+                            <i class="fa-solid fa-calculator" aria-hidden="true"></i>
+                            <span>הצעת מחיר</span>
+                        </a>
+                        <a href="#gallery" class="btn-hero-secondary">
+                            <i class="fa-solid fa-images" aria-hidden="true"></i>
+                            <span>לגלריה</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════
+         GALLERY: SHUFFLED, SHORT & NO NUMBERING / LABELS
+         ══════════════════════════════════════════════════ -->
+    <section class="gallery-section" id="gallery" aria-labelledby="gallery-main-title">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-tag">תיק עבודות</span>
+                <h2 class="section-title" id="gallery-main-title">רגעים שנתפסו בעדשה</h2>
+                <p class="section-sub">בחרו קטגוריה ולחצו על אלבום לצפייה בתמונות נוספות</p>
             </div>
 
-        </div>
-    </div>
-</section>
+            <!-- Filter Bar -->
+            <div class="gallery-filter-bar" role="group" aria-label="סינון אלבומים לפי קטגוריה">
+                <button class="filter-chip active" data-filter="all" aria-pressed="true">הכול</button>
+                <button class="filter-chip" data-filter="weddings" aria-pressed="false">חתונות</button>
+                <button class="filter-chip" data-filter="events" aria-pressed="false">אירועים</button>
+                <button class="filter-chip" data-filter="family" aria-pressed="false">משפחה</button>
+            </div>
 
-<!-- ══════════════════════════════════════════════════
-     GALLERY: SHUFFLED, SHORT & NO NUMBERING
-     ══════════════════════════════════════════════════ -->
-<section class="gallery-section" id="gallery">
-    <div class="container">
-        <div class="section-head">
-            <span class="section-tag">תיק עבודות</span>
-            <h2 class="section-title">רגעים שנתפסו בעדשה</h2>
-            <p class="section-sub">בחרו קטגוריה ולחצו על אלבום לצפייה בתמונות נוספות</p>
-        </div>
+            <!-- Curated Grid (Clean Cards - No text badges on main photos) -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Dynamically populated via JS -->
+            </div>
 
-        <!-- Filter Bar (Without any counts) -->
-        <div class="gallery-filter-bar">
-            <button class="filter-chip active" data-filter="all">הכול</button>
-            <button class="filter-chip" data-filter="weddings">חתונות</button>
-            <button class="filter-chip" data-filter="events">אירועים</button>
-            <button class="filter-chip" data-filter="family">משפחה</button>
-        </div>
-
-        <!-- Curated Grid -->
-        <div class="gallery-grid" id="galleryGrid">
-            <!-- Dynamically populated via JS -->
-        </div>
-
-        <!-- Load More Action -->
-        <div class="gallery-expand-wrap" id="galleryExpandWrap">
-            <button class="btn-expand-gallery" id="btnToggleMore">
-                <i class="fa-solid fa-arrow-down"></i>
-                <span id="btnToggleMoreText">הצג אלבומים נוספים</span>
-            </button>
-        </div>
-    </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════
-     CALCULATOR: הצעת מחיר מותאמת אישית
-     ══════════════════════════════════════════════════ -->
-<section class="calc-section" id="calculator">
-    <div class="container">
-        <div class="section-head">
-            <span class="section-tag">שקיפות מלאה</span>
-            <h2 class="section-title">הצעת מחיר מותאמת אישית</h2>
-            <p class="section-sub">בחרו שירות, סמנו תוספות רצויות וקבלו סיכום מדויק לשליחה מיידית בוואטסאפ.</p>
-        </div>
-
-        <div class="calc-wrapper">
-            <!-- Touch Tabs -->
-            <div class="calc-nav">
-                <button class="calc-tab active" data-cat="wedding">
-                    <i class="fa-solid fa-ring"></i>
-                    <span>חתונה</span>
-                </button>
-                <button class="calc-tab" data-cat="event">
-                    <i class="fa-solid fa-champagne-glasses"></i>
-                    <span>אירוע</span>
-                </button>
-                <button class="calc-tab" data-cat="family">
-                    <i class="fa-solid fa-users"></i>
-                    <span>משפחה</span>
-                </button>
-                <button class="calc-tab" data-cat="branding">
-                    <i class="fa-solid fa-briefcase"></i>
-                    <span>תדמית</span>
-                </button>
-                <button class="calc-tab" data-cat="property">
-                    <i class="fa-solid fa-house-chimney"></i>
-                    <span>נכסים</span>
-                </button>
-                <button class="calc-tab" data-cat="conference">
-                    <i class="fa-solid fa-microphone"></i>
-                    <span>כנסים</span>
+            <!-- Load More Action -->
+            <div class="gallery-expand-wrap" id="galleryExpandWrap">
+                <button class="btn-expand-gallery" id="btnToggleMore">
+                    <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+                    <span id="btnToggleMoreText">הצג אלבומים נוספים</span>
                 </button>
             </div>
-
-            <!-- PANEL 1: WEDDING -->
-            <div class="calc-panel active" id="panel-wedding" data-id="wedding" data-name="צילום חתונה" data-base="4500">
-                <div class="panel-header">
-                    <div class="panel-title">חבילת צילום חתונה</div>
-                    <div class="panel-base-pill">4,500 ₪ בסיס</div>
-                </div>
-                <p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:16px;">
-                    כולל צילום סטילס מקבלת הפנים ועד 00:00 (או עד 6 שעות, המוקדם מביניהם) וגלריית ענן פרטית.
-                </p>
-
-                <div class="calc-group-title"><i class="fa-solid fa-plus-circle"></i> שדרוגים ותוספות אפשריות:</div>
-                <div class="option-list">
-                    <div class="option-item" data-price="2500" data-label="צילום וידאו כולל קליפ היילייטס">
-                        <div class="option-right">
-                            <div class="option-checkbox-custom"><i class="fa-solid fa-check"></i></div>
-                            <span class="option-title">צלם וידאו כולל קליפ היילייטס וסרט מלא</span>
-                        </div>
-                        <span class="option-price-tag">+ 2,500 ₪</span>
-                    </div>
-
-                    <div class="option-item" data-price="1500" data-label="צלם סטילס נוסף">
-                        <div class="option-right">
-                            <div class="option-checkbox-custom"><i class="fa-solid fa-check"></i></div>
-                            <span class="option-title">צלם סטילס נוסף (מומלץ לאירועים מעל 350 איש)</span>
-                        </div>
-                        <span class="option-price-tag">+ 1,500 ₪</span>
-                    </div>
-
-                    <div class="option-item" data-price="300" data-label="צילומי הכנות כלה וחתן">
-                        <div class="option-right">
-                            <div class="option-checkbox-custom"><i class="fa-solid fa-check"></i></div>
-                            <span class="option-title">צילומי הכנות כלה וחתן (שעה לפני קבלת פנים)</span>
-                        </div>
-                        <span class="option-price-tag">+ 300 ₪</span>
-                    </div>
-
-                    <div class="option-item" data-price="300" data-label="שעת צילום נוספת (עד 01:00)">
-                        <div class="option-right">
-                            <div class="option-checkbox-custom"><i class="fa-solid fa-check"></i></div>
-                            <span class="option-title">שעת צילום נוספת (עד 01:00 או 7 שעות סה"כ)</span>
-                        </div>
-                        <span class="option-price-tag">+ 300 ₪</span>
-                    </div>
-
-                    <div class="option-item" data-price="800" data-label="אלבום פרימיום גדול 30X80">
-                        <div class="option-right">
-                            <div class="option-checkbox-custom"><i class="fa-solid fa-check"></i></div>
-                            <span class="option-title">אלבום דיגיטלי פרימיום גדול (30X80 פתוח, 30 דפים)</span>
-                        </div>
-                        <span class="option-price-tag">+ 800 ₪</span>
-                    </div>
-
-                    <div class="option-item" data-price="500" data-label="זוג אלבומי הורים מעוצבים">
-                        <div class="option-right">
-                            <div class="option-checkbox-custom"><i class="fa-solid fa-check"></i></div>
-                            <span class="option-title">זוג אלבומי הורים תואמים</span>
-                        </div>
-                        <span class="option-price-tag">+ 500 ₪</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PANEL 2: EVENT -->
-            <div class="calc-panel" id="panel-event" data-id="event" data-name="צילום אירוע" data-base="1500">
-                <div class="panel-header">
-                    <div class="panel-title">חבילת צילום אירוע (בר/בת מצווה, ברית, חינה)</div>
-                    <div class="panel-base-pill">1,500 ₪ בסיס</div>
-                </div>
-                <p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:16px;">
-                    כולל צילום סטילס מקצועי עד 3.5 שעות, מסירת כל התמונות בגלריית ענן מעוצבת.
-                </p>
-
-                <div class="calc-group-title"><i class="fa-solid fa-video"></i> אפשרויות וידאו (לבחירה אחת):</div>
-                <div class="option-list" data-radio-group="event-video">
-                    <div class="option-item radio-option" data-price="500" data-label="צילום וידאו לטקס בלבד">
-                        <div class="option-right">
-                            <div class="option-radio-custom"></div>
-                            <span class="option-title">צילום וידאו לטקס בלבד (עלייה לתורה/ברית)</span>
-                        </div>
-                        <span class="option-price-tag">+ 500 ₪</span>
-                    </div>
-
-                    <div class="option-item radio-option" data-price="800" data-label="צילום וידאו לכל האירוע">
-                        <div class="option-right">
-                            <div class="option-radio-custom"></div>
-                            <span class="option-title">צילום וידאו לכל אורך האירוע (כולל עריכה קלה)</span>
-                        </div>
-                        <span class="option-price-tag">+ 800 ₪</span>
-                    </div>
-
-                    <div class="option-item radio-option" data-price="1500" data-label="צלם וידאו ייעודי נוסף">
-                        <div class="option-right">
-                            <div class="option-radio-custom"></div>
-                            <span class="option-title">צלם וידאו ייעודי נוסף במקביל לסטילס</span>
-                        </div>
-                        <span class="option-price-tag">+ 1,500 ₪</span>
-                    </div>
-
-                    <div class="option-item radio-option" data-price="0" data-label="צילום וידאו בלבד (ללא סטילס)">
-                        <div class="option-right">
-                            <div class="option-radio-custom"></div>
-                            <span class="option-title">צילום וידאו בלבד (החלפת הסטילס בווידאו)</span>
-                        </div>
-                        <span class="option-price-tag">0 ₪</span>
-                    </div>
-                </div>
-
-                <div class="calc-group-title"><i class="fa-solid fa-plus-circle"></i> תוספות נוספות:</div>
-                <div class="option-list">
-                    <div class="option-item" data-price="300" data-label="שעת צילום נוספת (עד 4.5 שעות)">
-                        <div class="option-right">
-                            <div class="option-checkbox-custom"><i class="fa-solid fa-check"></i></div>
-                            <span class="option-title">שעת צילום נוספת (עד 4.5 שעות סה"כ)</span>
-                        </div>
-                        <span class="option-price-tag">+ 300 ₪</span>
-                    </div>
-
-                    <div class="option-item" data-price="1000" data-label="אלבום דיגיטלי יוקרתי">
-                        <div class="option-right">
-                            <div class="option-checkbox-custom"><i class="fa-solid fa-check"></i></div>
-                            <span class="option-title">אלבום דיגיטלי יוקרתי ומעוצב</span>
-                        </div>
-                        <span class="option-price-tag">+ 1,000 ₪</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PANEL 3: FAMILY -->
-            <div class="calc-panel" id="panel-family" data-id="family" data-name="צילומי משפחה" data-base="1000">
-                <div class="panel-header">
-                    <div class="panel-title">צילומי משפחה, היריון, זוגיות או חלאקה</div>
-                    <div class="panel-base-pill">1,000 ₪ בסיס</div>
-                </div>
-                <p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:16px;">
-                    כולל צילומי חוץ/טבע של שעה מלאה, אווירה קלילה וטבעית, ומסירת כל התמונות בענן.
-                </p>
-
-                <div class="calc-group-title"><i class="fa-solid fa-clock"></i> משך הצילומים:</div>
-                <div class="option-list" data-radio-group="family-duration">
-                    <div class="option-item radio-option" data-price="200" data-label="שעה וחצי צילום (סשן מורחב)">
-                        <div class="option-right">
-                            <div class="option-radio-custom"></div>
-                            <span class="option-title">שעה וחצי צילום (סשן מורחב ומגוון לוקיישנים)</span>
-                        </div>
-                        <span class="option-price-tag">+ 200 ₪</span>
-                    </div>
-
-                    <div class="option-item radio-option" data-price="400" data-label="שעתיים צילום (סשן מלא)">
-                        <div class="option-right">
-                            <div class="option-radio-custom"></div>
-                            <span class="option-title">שעתיים צילום (סשן עשיר עם החלפת סטים)</span>
-                        </div>
-                        <span class="option-price-tag">+ 400 ₪</span>
-                    </div>
-                </div>
-
-                <div class="calc-group-title"><i class="fa-solid fa-book-open"></i> הדפסה ומזכרת:</div>
-                <div class="option-list">
-                    <div class="option-item" data-price="1000" data-label="אלבום דיגיטלי יוקרתי">
-                        <div class="option-right">
-                            <div class="option-checkbox-custom"><i class="fa-solid fa-check"></i></div>
-                            <span class="option-title">אלבום דיגיטלי פרימיום מעוצב ומודפס</span>
-                        </div>
-                        <span class="option-price-tag">+ 1,000 ₪</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PANEL 4: BRANDING -->
-            <div class="calc-panel" id="panel-branding" data-id="branding" data-name="צילומי תדמית" data-base="1000">
-                <div class="panel-header">
-                    <div class="panel-title">צילומי תדמית ועסקים</div>
-                    <div class="panel-base-pill">1,000 ₪ בסיס</div>
-                </div>
-                <p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:16px;">
-                    צילום פורטרטים ותדמית עסקית מקצועית (שעה צילום) לשימוש באתר, לינקדאין, רשתות ופרסום.
-                </p>
-
-                <div class="calc-group-title"><i class="fa-solid fa-clock"></i> משך הצילומים:</div>
-                <div class="option-list" data-radio-group="branding-duration">
-                    <div class="option-item radio-option" data-price="200" data-label="שעה וחצי צילום">
-                        <div class="option-right">
-                            <div class="option-radio-custom"></div>
-                            <span class="option-title">שעה וחצי צילום מורחב</span>
-                        </div>
-                        <span class="option-price-tag">+ 200 ₪</span>
-                    </div>
-
-                    <div class="option-item radio-option" data-price="400" data-label="שעתיים צילום">
-                        <div class="option-right">
-                            <div class="option-radio-custom"></div>
-                            <span class="option-title">שעתיים צילום מלא לצוות/עסק</span>
-                        </div>
-                        <span class="option-price-tag">+ 400 ₪</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PANEL 5: PROPERTY -->
-            <div class="calc-panel" id="panel-property">
-                <div class="contact-notice-box">
-                    <i class="fa-solid fa-house-chimney" style="font-size:2.4rem; color:var(--primary); margin-bottom:12px;"></i>
-                    <h3 style="font-size:1.3rem; margin-bottom:8px;">צילום אדריכלות, נכסים ועיצוב פנים</h3>
-                    <p>הצעת המחיר מותאמת אישית לפי גודל הנכס, מיקום ומטרת הצילומים.</p>
-                    <a href="https://wa.me/972504773888?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%9C%D7%95%D7%9E%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%94%D7%A6%D7%A2%D7%AA%20%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%A6%D7%99%D7%9C%D7%95%D7%9D%20%D7%A0%D7%9B%D7%A1%20%D7%90%D7%95%20%D7%90%D7%93%D7%A8%D7%99%D7%9B%D7%9C%D7%95%D7%AA" 
-                       target="_blank" rel="noopener noreferrer" class="btn-proceed-booking" style="display:inline-flex;">
-                        <i class="fa-brands fa-whatsapp"></i>
-                        <span>קבלת הצעה ייעודית בוואטסאפ</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- PANEL 6: CONFERENCE -->
-            <div class="calc-panel" id="panel-conference">
-                <div class="contact-notice-box">
-                    <i class="fa-solid fa-microphone" style="font-size:2.4rem; color:var(--primary); margin-bottom:12px;"></i>
-                    <h3 style="font-size:1.3rem; margin-bottom:8px;">צילום כנסים, הרצאות ואירועי חברה</h3>
-                    <p>הצעת המחיר נבנית בהתאם למספר שעות הכנס, לוח הזמנים ודרישות הכיסוי.</p>
-                    <a href="https://wa.me/972504773888?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%9C%D7%95%D7%9E%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%94%D7%A6%D7%A2%D7%AA%20%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%A6%D7%99%D7%9C%D7%95%D7%9D%20%D7%9B%D7%A0%D7%A1%20%D7%90%D7%95%20%D7%90%D7%99%D7%A8%D7%95%D7%A2%20%D7%97%D7%91%D7%A8%D7%94" 
-                       target="_blank" rel="noopener noreferrer" class="btn-proceed-booking" style="display:inline-flex;">
-                        <i class="fa-brands fa-whatsapp"></i>
-                        <span>פנייה ישירה לתיאום כנס בוואטסאפ</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Live Calculation Footer (for Wedding, Event, Family, Branding) -->
-            <div class="calc-footer" id="calcFooter">
-                <div class="calc-total-box">
-                    <span class="calc-total-label">סה"כ משוער להזמנה:</span>
-                    <span class="calc-total-num" id="calcTotalDisplay">4,500 ₪</span>
-                </div>
-                <button class="btn-proceed-booking" id="btnOpenBookingModal">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <span>המשך לקבלת הצעת מחיר</span>
-                </button>
-            </div>
-
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ══════════════════════════════════════════════════
-   TESTIMONIALS (לקוחות מספרים - ללא שמות וסוג)
-   ══════════════════════════════════════════════════ -->
-<section class="reviews-section" id="testimonials">
-    <div class="container">
-        <div class="section-head">
-            <span class="section-tag">מילים חמות</span>
-            <h2 class="section-title">לקוחות מספרים</h2>
-            <p class="section-sub">השמחה שלכם היא ההשראה שלי. הנה חלק ממה שלקוחות כתבו אחרי שקיבלו את התמונות:</p>
-        </div>
-
-        <div class="reviews-grid">
-            <!-- Review 1 -->
-            <div class="review-card">
-                <div class="review-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="review-quote">
-                    "שלומי, אתה אמן!!! אין לנו מילים להודות לך, אנחנו לא מפסיקים להתמוגג מהתמונות. אתה מוכשר מאוד, ואין לי ספק שכל הזיכרון המתוק הזה מהשמחה שלנו הוא בזכות התמונות והמקצועיות שלך! הייתה לנו הפתעה אדירה כשראינו עוד המון תמונות שבכלל לא ידענו שצילמת!"
-                </p>
+    <!-- ══════════════════════════════════════════════════
+         CALCULATOR: הצעת מחיר מותאמת אישית
+         ══════════════════════════════════════════════════ -->
+    <section class="calc-section" id="calculator" aria-labelledby="calc-main-title">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-tag">שקיפות מלאה</span>
+                <h2 class="section-title" id="calc-main-title">הצעת מחיר מותאמת אישית</h2>
+                <p class="section-sub">בחרו שירות, סמנו תוספות רצויות וקבלו סיכום מדויק לשליחה מיידית בוואטסאפ.</p>
             </div>
 
-            <!-- Review 2 -->
-            <div class="review-card">
-                <div class="review-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <div class="calc-wrapper">
+                <!-- Touch Tabs with Reordered Categories: אירוע, משפחה, חתונה, תדמית, נכס, כנס -->
+                <div class="calc-nav" role="tablist" aria-label="בחירת סוג שירות צילום">
+                    <button class="calc-tab active" data-cat="event" role="tab" id="tab-event" aria-selected="true" aria-controls="panel-event">
+                        <i class="fa-solid fa-champagne-glasses" aria-hidden="true"></i>
+                        <span>אירוע</span>
+                    </button>
+                    <button class="calc-tab" data-cat="family" role="tab" id="tab-family" aria-selected="false" aria-controls="panel-family">
+                        <i class="fa-solid fa-users" aria-hidden="true"></i>
+                        <span>משפחה</span>
+                    </button>
+                    <button class="calc-tab" data-cat="wedding" role="tab" id="tab-wedding" aria-selected="false" aria-controls="panel-wedding">
+                        <i class="fa-solid fa-ring" aria-hidden="true"></i>
+                        <span>חתונה</span>
+                    </button>
+                    <button class="calc-tab" data-cat="branding" role="tab" id="tab-branding" aria-selected="false" aria-controls="panel-branding">
+                        <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+                        <span>תדמית</span>
+                    </button>
+                    <button class="calc-tab" data-cat="property" role="tab" id="tab-property" aria-selected="false" aria-controls="panel-property">
+                        <i class="fa-solid fa-house-chimney" aria-hidden="true"></i>
+                        <span>נכס</span>
+                    </button>
+                    <button class="calc-tab" data-cat="conference" role="tab" id="tab-conference" aria-selected="false" aria-controls="panel-conference">
+                        <i class="fa-solid fa-microphone" aria-hidden="true"></i>
+                        <span>כנס</span>
+                    </button>
                 </div>
-                <p class="review-quote">
-                    "וואו!!! אין לי מילים 💐 היית מעל ומעבר לצלם! השתלבת יפה עם כל האורחים בנעימות, פשטות ומקצועיות. התמונות מדהימות וממש מבטאות את האווירה המדהימה שהייתה במסיבה."
-                </p>
-            </div>
 
-            <!-- Review 3 -->
-            <div class="review-card">
-                <div class="review-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="review-quote">
-                    "תודה רבה על התמונות, יצאו מהמם! ישבנו אתמול לעבור עליהן, אחת אחת יפות, ברורות, ותופסות רגעים. ממש מרגש. תודה על הסבלנות לאורך כל האירוע, ועל המזכרת היפה שנשארה לנו מהיום הזה."
-                </p>
-            </div>
+                <!-- PANEL 1: EVENT (DEFAULT ACTIVE - 1,600 ₪) -->
+                <div class="calc-panel active" id="panel-event" role="tabpanel" aria-labelledby="tab-event" tabindex="0" data-id="event" data-name="צילום אירוע" data-base="1600">
+                    <div class="panel-header">
+                        <div class="panel-title">חבילת צילום אירוע (בר/בת מצווה, ברית, חינה)</div>
+                        <div class="panel-base-pill">1,600 ₪ בסיס</div>
+                    </div>
+                    <p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:16px;">
+                        כולל צילום סטילס מקצועי עד 3.5 שעות, מסירת כל התמונות בגלריית ענן מעוצבת.
+                    </p>
 
-            <!-- Review 4 -->
-            <div class="review-card">
-                <div class="review-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="review-quote">
-                    "היה כ"כ כיף איתך! באמת! הרגשנו בנוח תמיד לפנות אליך... אנשים לא מפסיקים להגיד כמה היית נחמד לכולם ואיזה כיף שיש אנשים כאלה... באמת תודה רבה רבה על הכול! נמשיך להמליץ בחום ♥"
-                </p>
-            </div>
+                    <div class="calc-group-title"><i class="fa-solid fa-video" aria-hidden="true"></i> אפשרויות וידאו (לבחירה אחת):</div>
+                    <div class="option-list" data-radio-group="event-video" role="radiogroup" aria-label="אפשרויות וידאו">
+                        <div class="option-item radio-option" role="radio" aria-checked="false" tabindex="0" data-price="500" data-label="צילום וידאו לטקס בלבד">
+                            <div class="option-right">
+                                <div class="option-radio-custom"></div>
+                                <span class="option-title">צילום וידאו לטקס בלבד (עלייה לתורה/ברית)</span>
+                            </div>
+                            <span class="option-price-tag">500 ₪</span>
+                        </div>
 
-            <!-- Review 5 -->
-            <div class="review-card">
-                <div class="review-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="review-quote">
-                    "תודה רבה על הצילומים! על שהיית נעים וכ"כ אנושי וזרמת איתנו כל היום! מעריכים ומודים מכל הלב 🙏🏻"
-                </p>
-            </div>
+                        <div class="option-item radio-option" role="radio" aria-checked="false" tabindex="0" data-price="800" data-label="צילום וידאו לכל האירוע">
+                            <div class="option-right">
+                                <div class="option-radio-custom"></div>
+                                <span class="option-title">צילום וידאו לכל אורך האירוע (כולל עריכה קלה)</span>
+                            </div>
+                            <span class="option-price-tag">800 ₪</span>
+                        </div>
 
-            <!-- Review 6 -->
-            <div class="review-card">
-                <div class="review-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <div class="option-item radio-option" role="radio" aria-checked="false" tabindex="0" data-price="1500" data-label="צלם וידאו ייעודי נוסף">
+                            <div class="option-right">
+                                <div class="option-radio-custom"></div>
+                                <span class="option-title">צלם וידאו ייעודי נוסף במקביל לסטילס</span>
+                            </div>
+                            <span class="option-price-tag">1,500 ₪</span>
+                        </div>
+
+                        <div class="option-item radio-option" role="radio" aria-checked="false" tabindex="0" data-price="0" data-label="צילום וידאו בלבד (ללא סטילס)">
+                            <div class="option-right">
+                                <div class="option-radio-custom"></div>
+                                <span class="option-title">צילום וידאו בלבד (החלפת הסטילס בווידאו)</span>
+                            </div>
+                            <span class="option-price-tag">0 ₪</span>
+                        </div>
+                    </div>
+
+                    <div class="calc-group-title"><i class="fa-solid fa-plus-circle" aria-hidden="true"></i> תוספות נוספות:</div>
+                    <div class="option-list">
+                        <div class="option-item" role="checkbox" aria-checked="false" tabindex="0" data-price="300" data-label="שעת צילום נוספת (עד 4.5 שעות)">
+                            <div class="option-right">
+                                <div class="option-checkbox-custom"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+                                <span class="option-title">שעת צילום נוספת (עד 4.5 שעות סה"כ)</span>
+                            </div>
+                            <span class="option-price-tag">300 ₪</span>
+                        </div>
+
+                        <div class="option-item" role="checkbox" aria-checked="false" tabindex="0" data-price="1000" data-label="אלבום דיגיטלי יוקרתי">
+                            <div class="option-right">
+                                <div class="option-checkbox-custom"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+                                <span class="option-title">אלבום דיגיטלי יוקרתי ומעוצב</span>
+                            </div>
+                            <span class="option-price-tag">1,000 ₪</span>
+                        </div>
+                    </div>
                 </div>
-                <p class="review-quote">
-                    "וואו איזה כיף שכ"כ מהר קיבלנו את הגלריה!!! תודה רבה רבה, תמונות פשוט מהממות ומרגשות!"
-                </p>
+
+                <!-- PANEL 2: FAMILY (1,200 ₪ BASE) -->
+                <div class="calc-panel" id="panel-family" role="tabpanel" aria-labelledby="tab-family" tabindex="0" data-id="family" data-name="צילומי משפחה" data-base="1200">
+                    <div class="panel-header">
+                        <div>
+                            <div class="panel-title">צילומי משפחה</div>
+                            <div style="font-size:0.84rem; color:var(--text-light); margin-top:4px;">משפחה, זוגיות, היריון, ניו בורן, גיל שנה, חלאקה, בוק בר מצווה, בוק בת מצווה ועוד</div>
+                        </div>
+                        <div class="panel-base-pill">1,200 ₪ בסיס</div>
+                    </div>
+                    <p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:16px;">
+                        כולל שעת צילום חוץ/טבע, אווירה קלילה וטבעית, ומסירת כל התמונות בענן.
+                    </p>
+
+                    <div class="calc-group-title"><i class="fa-solid fa-clock" aria-hidden="true"></i> שדרוגים ותוספות:</div>
+                    <div class="option-list">
+                        <div class="option-item" role="checkbox" aria-checked="false" tabindex="0" data-price="200" data-label="הארכה לשעתיים צילום">
+                            <div class="option-right">
+                                <div class="option-checkbox-custom"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+                                <span class="option-title">הארכה לשעתיים צילום (סשן מלא ומגוון)</span>
+                            </div>
+                            <span class="option-price-tag">200 ₪</span>
+                        </div>
+
+                        <div class="option-item" role="checkbox" aria-checked="false" tabindex="0" data-price="1000" data-label="אלבום דיגיטלי יוקרתי">
+                            <div class="option-right">
+                                <div class="option-checkbox-custom"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+                                <span class="option-title">אלבום דיגיטלי יוקרתי ומעוצב</span>
+                            </div>
+                            <span class="option-price-tag">1,000 ₪</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL 3: WEDDING (4,500 ₪ BASE) -->
+                <div class="calc-panel" id="panel-wedding" role="tabpanel" aria-labelledby="tab-wedding" tabindex="0" data-id="wedding" data-name="צילום חתונה" data-base="4500">
+                    <div class="panel-header">
+                        <div class="panel-title">חבילת צילום חתונה</div>
+                        <div class="panel-base-pill">4,500 ₪ בסיס</div>
+                    </div>
+                    <p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:16px;">
+                        כולל צילום סטילס מקבלת הפנים ועד 00:00 (או עד 6 שעות, המוקדם מביניהם) וגלריית ענן פרטית.
+                    </p>
+
+                    <div class="calc-group-title"><i class="fa-solid fa-plus-circle" aria-hidden="true"></i> שדרוגים ותוספות אפשריות:</div>
+                    <div class="option-list">
+                        <div class="option-item" role="checkbox" aria-checked="false" tabindex="0" data-price="2500" data-label="צילום וידאו כולל קליפ היילייטס">
+                            <div class="option-right">
+                                <div class="option-checkbox-custom"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+                                <span class="option-title">צלם וידאו כולל קליפ היילייטס וסרט מלא</span>
+                            </div>
+                            <span class="option-price-tag">2,500 ₪</span>
+                        </div>
+
+                        <div class="option-item" role="checkbox" aria-checked="false" tabindex="0" data-price="1500" data-label="צלם סטילס נוסף">
+                            <div class="option-right">
+                                <div class="option-checkbox-custom"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+                                <span class="option-title">צלם סטילס נוסף (מומלץ לאירועים מעל 350 איש)</span>
+                            </div>
+                            <span class="option-price-tag">1,500 ₪</span>
+                        </div>
+
+                        <div class="option-item" role="checkbox" aria-checked="false" tabindex="0" data-price="300" data-label="צילומי הכנות כלה וחתן">
+                            <div class="option-right">
+                                <div class="option-checkbox-custom"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+                                <span class="option-title">צילומי הכנות כלה וחתן (שעה לפני קבלת פנים)</span>
+                            </div>
+                            <span class="option-price-tag">300 ₪</span>
+                        </div>
+
+                        <div class="option-item" role="checkbox" aria-checked="false" tabindex="0" data-price="300" data-label="שעת צילום נוספת (עד 01:00)">
+                            <div class="option-right">
+                                <div class="option-checkbox-custom"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+                                <span class="option-title">שעת צילום נוספת (עד 01:00 או 7 שעות סה"כ)</span>
+                            </div>
+                            <span class="option-price-tag">300 ₪</span>
+                        </div>
+
+                        <div class="option-item" role="checkbox" aria-checked="false" tabindex="0" data-price="800" data-label="אלבום פרימיום גדול 30X80">
+                            <div class="option-right">
+                                <div class="option-checkbox-custom"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+                                <span class="option-title">אלבום דיגיטלי פרימיום גדול (30X80 פתוח, 30 דפים)</span>
+                            </div>
+                            <span class="option-price-tag">800 ₪</span>
+                        </div>
+
+                        <div class="option-item" role="checkbox" aria-checked="false" tabindex="0" data-price="500" data-label="זוג אלבומי הורים מעוצבים">
+                            <div class="option-right">
+                                <div class="option-checkbox-custom"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+                                <span class="option-title">זוג אלבומי הורים תואמים</span>
+                            </div>
+                            <span class="option-price-tag">500 ₪</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL 4: BRANDING (1,200 ₪ BASE / 1.5H = 1,400 ₪) -->
+                <div class="calc-panel" id="panel-branding" role="tabpanel" aria-labelledby="tab-branding" tabindex="0" data-id="branding" data-name="צילומי תדמית" data-base="1200">
+                    <div class="panel-header">
+                        <div class="panel-title">צילומי תדמית ועסקים</div>
+                        <div class="panel-base-pill">1,200 ₪ לשעה</div>
+                    </div>
+                    <p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:16px;">
+                        צילום פורטרטים ותדמית עסקית מקצועית (שעה צילום בסיס) לשימוש באתר, לינקדאין, רשתות ופרסום.
+                    </p>
+
+                    <div class="calc-group-title"><i class="fa-solid fa-clock" aria-hidden="true"></i> שדרוג משך הצילומים:</div>
+                    <div class="option-list">
+                        <div class="option-item" role="checkbox" aria-checked="false" tabindex="0" data-price="200" data-label="שעה וחצי צילום">
+                            <div class="option-right">
+                                <div class="option-checkbox-custom"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+                                <span class="option-title">שעה וחצי צילום מורחב (סה"כ 1,400 ₪)</span>
+                            </div>
+                            <span class="option-price-tag">200 ₪</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL 5: PROPERTY (נכס) -->
+                <div class="calc-panel" id="panel-property" role="tabpanel" aria-labelledby="tab-property" tabindex="0">
+                    <div class="contact-notice-box">
+                        <i class="fa-solid fa-house-chimney" style="font-size:2.4rem; color:var(--primary); margin-bottom:12px;" aria-hidden="true"></i>
+                        <h3 style="font-size:1.3rem; margin-bottom:8px;">צילום אדריכלות, נכסים ועיצוב פנים</h3>
+                        <p>הצעת המחיר מותאמת אישית לפי גודל הנכס, מיקום ומטרת הצילומים.</p>
+                        <a href="https://wa.me/972504773888?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%9C%D7%95%D7%9E%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%94%D7%A6%D7%A2%D7%AA%20%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%A6%D7%99%D7%9C%D7%95%D7%9D%20%D7%A0%D7%9B%D7%A1%20%D7%90%D7%95%20%D7%90%D7%93%D7%A8%D7%99%D7%9B%D7%9C%D7%95%D7%AA" 
+                           target="_blank" rel="noopener noreferrer" class="btn-proceed-booking" style="display:inline-flex;">
+                            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                            <span>קבלת הצעה ייעודית בוואטסאפ</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PANEL 6: CONFERENCE (כנס) -->
+                <div class="calc-panel" id="panel-conference" role="tabpanel" aria-labelledby="tab-conference" tabindex="0">
+                    <div class="contact-notice-box">
+                        <i class="fa-solid fa-microphone" style="font-size:2.4rem; color:var(--primary); margin-bottom:12px;" aria-hidden="true"></i>
+                        <h3 style="font-size:1.3rem; margin-bottom:8px;">צילום כנסים, הרצאות ואירועי חברה</h3>
+                        <p>הצעת המחיר נבנית בהתאם למספר שעות הכנס, לוח הזמנים ודרישות הכיסוי.</p>
+                        <a href="https://wa.me/972504773888?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%9C%D7%95%D7%9E%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%94%D7%A6%D7%A2%D7%AA%20%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%A6%D7%99%D7%9C%D7%95%D7%9D%20%D7%9B%D7%A0%D7%A1%20%D7%90%D7%95%20%D7%90%D7%99%D7%A8%D7%95%D7%A2%20%D7%97%D7%91%D7%A8%D7%94" 
+                           target="_blank" rel="noopener noreferrer" class="btn-proceed-booking" style="display:inline-flex;">
+                            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                            <span>פנייה ישירה לתיאום כנס בוואטסאפ</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Live Calculation Footer (Default event base 1,600 ₪) -->
+                <div class="calc-footer" id="calcFooter">
+                    <div class="calc-total-box">
+                        <span class="calc-total-label">סה"כ משוער להזמנה:</span>
+                        <span class="calc-total-num" id="calcTotalDisplay">1,600 ₪</span>
+                    </div>
+                    <button class="btn-proceed-booking" id="btnOpenBookingModal" aria-haspopup="dialog">
+                        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                        <span>המשך לקבלת הצעת מחיר</span>
+                    </button>
+                </div>
+
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════
+       TESTIMONIALS (לקוחות מספרים - ללא שמות וסוג)
+       ══════════════════════════════════════════════════ -->
+    <section class="reviews-section" id="testimonials" aria-labelledby="reviews-main-title">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-tag">מילים חמות</span>
+                <h2 class="section-title" id="reviews-main-title">לקוחות מספרים</h2>
+                <p class="section-sub">השמחה שלכם היא ההשראה שלי. הנה חלק ממה שלקוחות כתבו אחרי שקיבלו את התמונות:</p>
+            </div>
+
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-stars" aria-label="דירוג 5 כוכבים">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p class="review-quote">
+                        "שלומי, אתה אמן!!! אין לנו מילים להודות לך, אנחנו לא מפסיקים להתמוגג מהתמונות. אתה מוכשר מאוד, ואין לי ספק שכל הזיכרון המתוק הזה מהשמחה שלנו הוא בזכות התמונות והמקצועיות שלך! הייתה לנו הפתעה אדירה כשראינו עוד המון תמונות שבכלל לא ידענו שצילמת!"
+                    </p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-stars" aria-label="דירוג 5 כוכבים">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p class="review-quote">
+                        "וואו!!! אין לי מילים 💐 היית מעל ומעבר לצלם! השתלבת יפה עם כל האורחים בנעימות, פשטות ומקצועיות. התמונות מדהימות וממש מבטאות את האווירה המדהימה שהייתה במסיבה."
+                    </p>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-stars" aria-label="דירוג 5 כוכבים">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p class="review-quote">
+                        "תודה רבה על התמונות, יצאו מהמם! ישבנו אתמול לעבור עליהן, אחת אחת יפות, ברורות, ותופסות רגעים. ממש מרגש. תודה על הסבלנות לאורך כל האירוע, ועל המזכרת היפה שנשארה לנו מהיום הזה."
+                    </p>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <div class="review-stars" aria-label="דירוג 5 כוכבים">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p class="review-quote">
+                        "היה כ"כ כיף איתך! באמת! הרגשנו בנוח תמיד לפנות אליך... אנשים לא מפסיקים להגיד כמה היית נחמד לכולם ואיזה כיף שיש אנשים כאלה... באמת תודה רבה רבה על הכול! נמשיך להמליץ בחום ♥"
+                    </p>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="review-card">
+                    <div class="review-stars" aria-label="דירוג 5 כוכבים">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p class="review-quote">
+                        "תודה רבה על הצילומים! על שהיית נעים וכ"כ אנושי וזרמת איתנו כל היום! מעריכים ומודים מכל הלב 🙏🏻"
+                    </p>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="review-card">
+                    <div class="review-stars" aria-label="דירוג 5 כוכבים">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p class="review-quote">
+                        "וואו איזה כיף שכ"כ מהר קיבלנו את הגלריה!!! תודה רבה רבה, תמונות פשוט מהממות ומרגשות!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
 
 <!-- ══════════════════════════════════════════════════
      FOOTER
      ══════════════════════════════════════════════════ -->
-<footer class="site-footer">
+<footer class="site-footer" role="contentinfo">
     <div class="container">
         <div class="footer-grid">
             <div class="footer-brand">
-                <img src="photos/230607 - לוגו.png" alt="שלומי צור צילום">
+                <img src="photos/230607 - לוגו.png" alt="שלומי צור צילום אירועים ומשפחה">
                 <p class="footer-bio">
                     שלומי צור – צלם אירועים, חתונות ומשפחה. הופך רגעים אותנטיים לסיפור מצולם שכיף לפתוח שוב ושוב.
                 </p>
-                <div class="social-links">
-                    <a href="https://instagram.com/shlomizur1" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="אינסטגרם">
-                        <i class="fa-brands fa-instagram"></i>
+                <div class="social-links" aria-label="רשתות חברתיות">
+                    <a href="https://instagram.com/shlomizur1" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="פרופיל אינסטגרם של שלומי צור (נפתח בחלון חדש)">
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
                     </a>
-                    <a href="https://facebook.com/1shlomizur" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="פייסבוק">
-                        <i class="fa-brands fa-facebook-f"></i>
+                    <a href="https://facebook.com/1shlomizur" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="עמוד פייסבוק של שלומי צור (נפתח בחלון חדש)">
+                        <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
                     </a>
-                    <a href="https://youtube.com/@shlomizur" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="יוטיוב">
-                        <i class="fa-brands fa-youtube"></i>
+                    <a href="https://youtube.com/@shlomizur" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="ערוץ יוטיוב של שלומי צור (נפתח בחלון חדש)">
+                        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
                     </a>
-                    <a href="https://wa.me/972504773888" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="וואטסאפ">
-                        <i class="fa-brands fa-whatsapp"></i>
+                    <a href="https://wa.me/972504773888" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="וואטסאפ ישיר של שלומי צור (נפתח בחלון חדש)">
+                        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
@@ -2047,19 +2076,19 @@ button {
             <div class="footer-col">
                 <h4>יצירת קשר</h4>
                 <ul class="footer-links">
-                    <li><i class="fa-brands fa-whatsapp" style="margin-left:8px; color:var(--whatsapp)"></i> 050-477-3888</li>
-                    <li><i class="fa-solid fa-location-dot" style="margin-left:8px; color:var(--primary)"></i> שירות בכל רחבי הארץ</li>
-                    <li><i class="fa-solid fa-clock" style="margin-left:8px; color:var(--primary)"></i> מענה מהיר בוואטסאפ</li>
+                    <li><i class="fa-brands fa-whatsapp" style="margin-left:8px; color:var(--whatsapp)" aria-hidden="true"></i> 050-477-3888</li>
+                    <li><i class="fa-solid fa-location-dot" style="margin-left:8px; color:var(--primary)" aria-hidden="true"></i> שירות בכל רחבי הארץ</li>
+                    <li><i class="fa-solid fa-clock" style="margin-left:8px; color:var(--primary)" aria-hidden="true"></i> מענה מהיר בוואטסאפ</li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
             <div>© <span id="currentYear"></span> שלומי צור – כל הזכויות שמורות.</div>
-            <div class="footer-legal-links">
-                <button type="button" onclick="openLegalModal('terms')">תנאי שימוש</button>
-                <button type="button" onclick="openLegalModal('privacy')">מדיניות פרטיות</button>
-                <button type="button" onclick="openLegalModal('accessibility')">הצהרת נגישות</button>
+            <div class="footer-legal-links" aria-label="מידע משפטי ונגישות">
+                <a href="terms" target="_blank" rel="noopener noreferrer">תנאי שימוש</a>
+                <a href="privacy" target="_blank" rel="noopener noreferrer">מדיניות פרטיות</a>
+                <a href="accessibility" target="_blank" rel="noopener noreferrer">הצהרת נגישות</a>
             </div>
         </div>
     </div>
@@ -2068,26 +2097,26 @@ button {
 <!-- ══════════════════════════════════════════════════
      FLOATING MOBILE DOCK
      ══════════════════════════════════════════════════ -->
-<nav class="mobile-dock" aria-label="ניווט תחתון">
+<nav class="mobile-dock" aria-label="סרגל ניווט תחתון מהיר בנייד">
     <a href="#about" class="dock-item">
-        <i class="fa-solid fa-house"></i>
+        <i class="fa-solid fa-house" aria-hidden="true"></i>
         <span>ראשי</span>
     </a>
     <a href="#gallery" class="dock-item">
-        <i class="fa-solid fa-images"></i>
+        <i class="fa-solid fa-images" aria-hidden="true"></i>
         <span>גלריה</span>
     </a>
     <a href="#calculator" class="dock-item">
-        <i class="fa-solid fa-calculator"></i>
+        <i class="fa-solid fa-calculator" aria-hidden="true"></i>
         <span>הצעת מחיר</span>
     </a>
     <a href="#testimonials" class="dock-item">
-        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star" aria-hidden="true"></i>
         <span>המלצות</span>
     </a>
     <a href="https://wa.me/972504773888?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%9C%D7%95%D7%9E%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%A6%D7%99%D7%9C%D7%95%D7%9D" 
-       target="_blank" rel="noopener noreferrer" class="dock-item dock-wa">
-        <i class="fa-brands fa-whatsapp"></i>
+       target="_blank" rel="noopener noreferrer" class="dock-item dock-wa" aria-label="פנייה בוואטסאפ (נפתח בחלון חדש)">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
         <span>וואטסאפ</span>
     </a>
 </nav>
@@ -2095,12 +2124,12 @@ button {
 <!-- ══════════════════════════════════════════════════
      MODAL: BOOKING & WHATSAPP GENERATOR
      ══════════════════════════════════════════════════ -->
-<div class="modal-overlay" id="bookingModal">
+<div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
     <div class="modal-card">
         <div class="modal-header">
             <h3 id="bookingModalTitle">פרטי האירוע לקבלת הצעת מחיר</h3>
-            <button class="modal-close-btn" onclick="closeModal('bookingModal')" aria-label="סגור">
-                <i class="fa-solid fa-xmark"></i>
+            <button class="modal-close-btn" onclick="closeModal('bookingModal')" aria-label="סגירת חלון הצעת המחיר">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
             </button>
         </div>
         <div class="modal-body">
@@ -2108,21 +2137,21 @@ button {
             <div class="booking-summary-strip">
                 <div>
                     <div style="font-size:0.8rem; color:var(--text-light)">חבילה נבחרת:</div>
-                    <div class="title" id="bookSumService">צילום חתונה</div>
+                    <div class="title" id="bookSumService">צילום אירוע</div>
                 </div>
                 <div>
                     <div style="font-size:0.8rem; color:var(--text-light)">עלות כוללת:</div>
-                    <div class="price" id="bookSumPrice">4,500 ₪</div>
+                    <div class="price" id="bookSumPrice">1,600 ₪</div>
                 </div>
             </div>
 
             <!-- Event Subtype Chips -->
             <div class="form-field" id="eventSubtypeField">
                 <label id="eventSubtypeLabel">סוג האירוע:</label>
-                <div class="form-chips" id="eventSubtypeChips">
+                <div class="form-chips" id="eventSubtypeChips" role="group" aria-labelledby="eventSubtypeLabel">
                     <!-- Populated dynamically -->
                 </div>
-                <input type="text" class="form-input" id="subtypeOtherInput" placeholder="פרטו את סוג האירוע..." style="display:none; margin-top:8px;">
+                <input type="text" class="form-input" id="subtypeOtherInput" placeholder="פרטו את סוג האירוע..." style="display:none; margin-top:8px;" aria-label="פירוט סוג אירוע אחר">
             </div>
 
             <!-- Date -->
@@ -2149,21 +2178,35 @@ button {
                 <input type="text" class="form-input" id="bookNotesInput" placeholder="מספר אורחים משוער, בקשות ספציפיות...">
             </div>
 
-            <!-- EXPECTATIONS & TERMS AGREEMENT CHECKBOX (User requested here) -->
-            <div class="terms-agreement-box">
-                <label class="terms-agreement-label" for="termsAgreementCheckbox">
-                    <input type="checkbox" id="termsAgreementCheckbox" checked>
-                    <span>קראתי ואני מאשר/ת את תיאום הציפיות ותנאי השירות</span>
-                </label>
-                <div class="terms-agreement-text">
+            <!-- EXPECTATIONS & TERMS OF SERVICE -->
+            <div class="expectations-terms-box">
+                <h4 class="expectations-box-title">
+                    <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+                    <span>תיאום ציפיות ותנאי השירות</span>
+                </h4>
+                <div class="expectations-box-body">
                     התשלום יתבצע בהעברה בנקאית מיד לאחר הצילומים, ולאחריו תישלח קבלה דיגיטלית. התמונות הסופיות יימסרו כגלריה בענן תוך כשבוע, ללא קבצי חומר הגלם. הגלריה תהיה זמינה בענן למשך שנה, אך מומלץ בחום להוריד ולגבות את התמונות בהקדם כדי לשמור עליהן בבטחה. זכויות היוצרים של התמונות נשארות בידי הצלם, וייתכן שימוש במספר תמונות נבחרות לצרכי פרסום ושיווק, ברגישות ובהתחשבות.
                 </div>
+
+                <!-- Checkbox 1: תיאום ציפיות (UNCHECKED by default, MANDATORY) -->
+                <label class="required-checkbox-label" for="termsAgreementCheckbox">
+                    <input type="checkbox" id="termsAgreementCheckbox" required>
+                    <span><strong>קראתי ואני מאשר/ת את תיאום הציפיות ותנאי השירות</strong> (חובה)</span>
+                </label>
+
+                <!-- Checkbox 2: תנאי השימוש ומדיניות הפרטיות (UNCHECKED by default, MANDATORY, links to separate pages) -->
+                <label class="required-checkbox-label" for="privacyTermsAgreementCheckbox">
+                    <input type="checkbox" id="privacyTermsAgreementCheckbox" required>
+                    <span>
+                        קראתי והסכמתי ל<a href="terms" target="_blank" rel="noopener noreferrer">תנאי השימוש</a> ול<a href="privacy" target="_blank" rel="noopener noreferrer">מדיניות הפרטיות</a> (מסירת המידע הינה מרצונך החופשי, לצורך קבלת הצעת מחיר בלבד) (חובה)
+                    </span>
+                </label>
             </div>
 
-            <!-- Send WA Action -->
+            <!-- Send WA Action with updated button text -->
             <button class="btn-send-wa-final" onclick="submitBookingToWhatsApp()">
-                <i class="fa-brands fa-whatsapp"></i>
-                <span>שליחת הצעת המחיר לוואטסאפ של שלומי</span>
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                <span>שליחת הצעת המחיר לוואטסאפ</span>
             </button>
         </div>
     </div>
@@ -2172,12 +2215,12 @@ button {
 <!-- ══════════════════════════════════════════════════
      MODAL: SUB-GALLERY (VIEW EVENT PHOTOS)
      ══════════════════════════════════════════════════ -->
-<div class="modal-overlay" id="subGalleryModal">
+<div class="modal-overlay" id="subGalleryModal" role="dialog" aria-modal="true" aria-labelledby="subGalleryTitle">
     <div class="modal-card subgallery-modal-card">
         <div class="modal-header">
             <h3 id="subGalleryTitle">תמונות מהאירוע</h3>
-            <button class="modal-close-btn" onclick="closeModal('subGalleryModal')" aria-label="סגור">
-                <i class="fa-solid fa-xmark"></i>
+            <button class="modal-close-btn" onclick="closeModal('subGalleryModal')" aria-label="סגירת גלריית האירוע">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
             </button>
         </div>
         <div class="modal-body">
@@ -2189,59 +2232,17 @@ button {
 </div>
 
 <!-- ══════════════════════════════════════════════════
-     MODAL: LEGAL, PRIVACY & ACCESSIBILITY
-     ══════════════════════════════════════════════════ -->
-<div class="modal-overlay" id="legalModal">
-    <div class="modal-card">
-        <div class="modal-header">
-            <h3 id="legalModalTitle">תנאי שימוש, פרטיות ונגישות</h3>
-            <button class="modal-close-btn" onclick="closeModal('legalModal')" aria-label="סגור">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-        </div>
-        <div class="modal-body" style="font-size:0.95rem; line-height:1.7; color:var(--text-muted);">
-            <div id="legalSectionTerms">
-                <h4 style="color:var(--text-main); margin-bottom:8px; font-size:1.1rem;">תנאי שימוש</h4>
-                <p style="margin-bottom:16px;">
-                    השימוש באתר כפוף לתנאים הבאים, וגלישה מהווה הסכמה מלאה להם. השימוש באתר באחריות המשתמש בלבד, והתכנים מוצגים כפי שהם, ללא אחריות מפורשת או משתמעת. כל זכויות היוצרים על תכנים, תמונות ועיצובים שמורות ואין להעתיק, לשכפל או להפיץ ללא אישור. בעל האתר רשאי לבצע שינויים, עדכונים ותחזוקה בכל עת וללא הודעה מראש. ייתכנו קישורים לאתרים חיצוניים, ואין לבעל האתר אחריות לתכנים או לשימוש בהם.
-                </p>
-            </div>
-
-            <div id="legalSectionPrivacy">
-                <h4 style="color:var(--text-main); margin-bottom:8px; font-size:1.1rem;">מדיניות פרטיות</h4>
-                <p style="margin-bottom:16px;">
-                    האתר עושה שימוש בגוגל אנליטיקס (Google Analytics) לצורך ניתוח תנועה ושיפור חוויית המשתמש, שעשוי לאסוף מידע כגון סוג המכשיר, דפדפן, דפים שנצפו, משך הביקור ומיקום כללי. האתר משתמש בעוגיות (Cookies) לתפקוד תקין ושיפור ביצועים, שניתן לחסום דרך הדפדפן אך חלקים מהאתר עלולים שלא לפעול כראוי. המידע שנאסף משמש לסטטיסטיקה, ניתוח ותפעול האתר בלבד, ואינו נמכר או מועבר לצד שלישי, למעט ספקי שירות טכנולוגיים הדרושים להפעלה. בעל האתר נוקט באמצעים סבירים לאבטחת המידע, אך אינו יכול להבטיח אבטחה מוחלטת. המדיניות עשויה להשתנות, ושימוש באתר לאחר עדכון מהווה הסכמה למדיניות המעודכנת.
-                </p>
-            </div>
-
-            <div id="legalSectionAccessibility">
-                <h4 style="color:var(--text-main); margin-bottom:8px; font-size:1.1rem;">הצהרת נגישות</h4>
-                <p style="margin-bottom:16px;">
-                    האתר מספק חוויית גלישה נגישה לכל המשתמשים, כולל אנשים עם מוגבלות. האתר הונגש בהתאם להנחיות WCAG 2.1 ברמה AA ובהתאם לתקן הישראלי ת"י 5568 ותקנות שוויון זכויות לאנשים עם מוגבלות. האתר מותאם לגלישה בדפדפנים נפוצים, תומך בגלישה באמצעות מקלדת ובטכנולוגיות מסייעות כגון תוכנות הקראת מסך, וכולל מבנה תוכן ברור והתאמה למכשירים שונים. ייתכן שקיימים תכני צד ג' שנגישותם חלקית ואינם בשליטת האתר. הצהרה זו עודכנה לאחרונה בתאריך 01/12/2025.
-                </p>
-                <p><strong>לפנייה בנושא נגישות ובקשות התאמה:</strong></p>
-                <a href="https://wa.me/972504773888?text=%D7%A4%D7%A0%D7%99%D7%99%D7%94%20%D7%91%D7%A0%D7%95%D7%A9%D7%90%20%D7%A0%D7%92%D7%99%D7%A9%D7%95%D7%AA%20%D7%94%D7%90%D7%AA%D7%A8" 
-                   target="_blank" rel="noopener noreferrer" class="btn-proceed-booking" style="margin-top:12px; width:100%;">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <span>פנייה ישירה לרכז הנגישות</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════
      LIGHTBOX (IMAGE FULLSCREEN)
      ══════════════════════════════════════════════════ -->
-<div class="lightbox" id="lightbox">
-    <button class="lightbox-close" onclick="closeLightbox()" aria-label="סגור תמונה">
-        <i class="fa-solid fa-xmark"></i>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="הגדלת תמונה">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="סגירת תמונה מוגדלת">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
     </button>
-    <button class="lightbox-nav lightbox-prev" onclick="prevLightboxImage()" aria-label="הקודם">
-        <i class="fa-solid fa-chevron-right"></i>
+    <button class="lightbox-nav lightbox-prev" onclick="prevLightboxImage()" aria-label="לתמונה הקודמת">
+        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
     </button>
-    <button class="lightbox-nav lightbox-next" onclick="nextLightboxImage()" aria-label="הבא">
-        <i class="fa-solid fa-chevron-left"></i>
+    <button class="lightbox-nav lightbox-next" onclick="nextLightboxImage()" aria-label="לתמונה הבאה">
+        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
     </button>
     <img src="" alt="" class="lightbox-img" id="lightboxImg">
 </div>
@@ -2250,6 +2251,22 @@ button {
      JAVASCRIPT LOGIC
      ══════════════════════════════════════════════════ -->
 <script>
+/* Auto-adapt clean URLs when previewing locally on computer (file:// protocol) */
+if (window.location.protocol === 'file:') {
+    document.querySelectorAll('a[href="terms"], a[href="privacy"], a[href="accessibility"]').forEach(a => {
+        a.setAttribute('href', a.getAttribute('href') + '.html');
+    });
+    document.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if (a) {
+            const h = a.getAttribute('href');
+            if (['terms', 'privacy', 'accessibility'].includes(h)) {
+                a.setAttribute('href', h + '.html');
+            }
+        }
+    }, true);
+}
+
 /* ─── CONSTANTS & CONFIG ─── */
 const WA_PHONE = '972504773888';
 const LEGAL_TERMS_SUMMARY = 'תיאום ציפיות: התשלום יתבצע בהעברה בנקאית מיד לאחר הצילומים, ולאחריו תישלח קבלה דיגיטלית. התמונות הסופיות יימסרו כגלריה בענן תוך כשבוע, ללא קבצי חומר הגלם. הגלריה תהיה זמינה בענן למשך שנה, אך מומלץ בחום להוריד ולגבות את התמונות בהקדם כדי לשמור עליהן בבטחה. זכויות היוצרים של התמונות נשארות בידי הצלם, וייתכן שימוש במספר תמונות נבחרות לצרכי פרסום ושיווק, ברגישות ובהתחשבות.';
@@ -2273,20 +2290,23 @@ window.addEventListener('scroll', () => {
 
 const drawer = document.getElementById('drawer');
 const drawerOverlay = document.getElementById('drawerOverlay');
+const openDrawerBtn = document.getElementById('openDrawerBtn');
 
 function openDrawer() {
     drawer.classList.add('open');
     drawerOverlay.classList.add('open');
+    openDrawerBtn.setAttribute('aria-expanded', 'true');
     document.body.classList.add('no-scroll');
 }
 
 function closeDrawer() {
     drawer.classList.remove('open');
     drawerOverlay.classList.remove('open');
+    openDrawerBtn.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('no-scroll');
 }
 
-document.getElementById('openDrawerBtn').addEventListener('click', openDrawer);
+openDrawerBtn.addEventListener('click', openDrawer);
 document.getElementById('closeDrawerBtn').addEventListener('click', closeDrawer);
 drawerOverlay.addEventListener('click', closeDrawer);
 
@@ -2354,6 +2374,12 @@ const CATEGORY_HEB = {
     family: 'משפחה'
 };
 
+const CATEGORY_ALT = {
+    weddings: 'תמונת חתונה – צילום מקצועי מאת שלומי צור',
+    events: 'תמונת אירוע – צילום מקצועי מאת שלומי צור',
+    family: 'תמונת משפחה – צילום מקצועי מאת שלומי צור'
+};
+
 // Shuffling helper
 function shuffleArray(arr) {
     const a = [...arr];
@@ -2392,35 +2418,29 @@ let currentLoadedItems = [];
 let remainingPool = { weddings: [], events: [], family: [] };
 
 function resetAndRenderAll() {
-    // Shuffle covers in each category
     const shufWeddings = shuffleArray(ALL_COVERS.weddings);
     const shufFamily = shuffleArray(ALL_COVERS.family);
     const shufEvents = shuffleArray(ALL_COVERS.events);
 
-    // Initial 8 items rule: 2 weddings, 2 family, 4 events
     const initWeddings = shufWeddings.slice(0, 2);
     const initFamily = shufFamily.slice(0, 2);
     const initEvents = shufEvents.slice(0, 4);
 
-    // Save remaining pool for "הצג אלבומים נוספים"
     remainingPool = {
         weddings: shufWeddings.slice(2),
         family: shufFamily.slice(2),
         events: shufEvents.slice(4)
     };
 
-    // Combine and shuffle the initial 8 items
     currentLoadedItems = shuffleArray([...initWeddings, ...initFamily, ...initEvents]);
     renderCurrentGrid();
 
-    // Enable button
     const expandWrap = document.getElementById('galleryExpandWrap');
     expandWrap.style.display = 'block';
     document.getElementById('btnToggleMoreText').textContent = 'הצג אלבומים נוספים';
 }
 
 function loadMoreAllAlbums() {
-    // Next 12 albums rule: 5 weddings, 2 family, 5 events
     const moreWeddings = remainingPool.weddings.slice(0, 5);
     const moreFamily = remainingPool.family.slice(0, 2);
     const moreEvents = remainingPool.events.slice(0, 5);
@@ -2429,8 +2449,6 @@ function loadMoreAllAlbums() {
     currentLoadedItems = [...currentLoadedItems, ...next12];
 
     renderCurrentGrid();
-
-    // Hide button once expanded
     document.getElementById('galleryExpandWrap').style.display = 'none';
 }
 
@@ -2450,15 +2468,18 @@ function renderCurrentGrid() {
         card.className = 'album-card';
         card.setAttribute('role', 'button');
         card.setAttribute('tabindex', '0');
-        card.setAttribute('aria-label', `אלבום ${CATEGORY_HEB[item.cat]}`);
+        card.setAttribute('aria-label', `פתיחת אלבום ${CATEGORY_HEB[item.cat]}`);
         card.onclick = () => openSubGallery(item.eid, item.cat);
-        card.onkeydown = (e) => { if (e.key === 'Enter') openSubGallery(item.eid, item.cat); };
+        card.onkeydown = (e) => { 
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openSubGallery(item.eid, item.cat); 
+            }
+        };
 
+        // Clean image without category text overlay on main covers
         card.innerHTML = `
-            <img src="${item.path}" alt="${CATEGORY_HEB[item.cat]}" loading="lazy">
-            <div class="album-overlay">
-                <span class="album-badge">${CATEGORY_HEB[item.cat]}</span>
-            </div>
+            <img src="${item.path}" alt="${CATEGORY_ALT[item.cat] || 'תמונת צילום מאת שלומי צור'}" loading="lazy">
         `;
         grid.appendChild(card);
     });
@@ -2467,8 +2488,12 @@ function renderCurrentGrid() {
 // Category filter tabs
 document.querySelectorAll('.filter-chip').forEach(btn => {
     btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.filter-chip').forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-pressed', 'false');
+        });
         btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
         currentCategory = btn.getAttribute('data-filter');
 
         if (currentCategory === 'all') {
@@ -2494,14 +2519,22 @@ function openSubGallery(eid, cat) {
     const grid = document.getElementById('subGalleryGrid');
     grid.innerHTML = '';
 
-    // No numbering in sub-gallery title!
     document.getElementById('subGalleryTitle').textContent = `אלבום ${CATEGORY_HEB[cat]}`;
 
     currentSubPhotos.forEach((item, index) => {
         const d = document.createElement('div');
         d.className = 'sub-item';
-        d.innerHTML = `<img src="${item.path}" alt="תמונה" loading="lazy">`;
+        d.setAttribute('role', 'button');
+        d.setAttribute('tabindex', '0');
+        d.setAttribute('aria-label', `הגדלת תמונה ${index + 1} מתוך אלבום ${CATEGORY_HEB[cat]}`);
+        d.innerHTML = `<img src="${item.path}" alt="${CATEGORY_ALT[cat] || 'תמונה'}" loading="lazy">`;
         d.onclick = () => openLightbox(index);
+        d.onkeydown = (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openLightbox(index);
+            }
+        };
         grid.appendChild(d);
     });
 
@@ -2513,6 +2546,7 @@ function openLightbox(index) {
     lightboxIndex = index;
     const img = document.getElementById('lightboxImg');
     img.src = currentSubPhotos[lightboxIndex].path;
+    img.alt = CATEGORY_ALT[currentSubPhotos[lightboxIndex].cat] || 'תמונה מוגדלת';
     document.getElementById('lightbox').classList.add('open');
 }
 
@@ -2523,13 +2557,17 @@ function closeLightbox() {
 function nextLightboxImage() {
     if (!currentSubPhotos.length) return;
     lightboxIndex = (lightboxIndex + 1) % currentSubPhotos.length;
-    document.getElementById('lightboxImg').src = currentSubPhotos[lightboxIndex].path;
+    const img = document.getElementById('lightboxImg');
+    img.src = currentSubPhotos[lightboxIndex].path;
+    img.alt = CATEGORY_ALT[currentSubPhotos[lightboxIndex].cat] || 'תמונה מוגדלת';
 }
 
 function prevLightboxImage() {
     if (!currentSubPhotos.length) return;
     lightboxIndex = (lightboxIndex - 1 + currentSubPhotos.length) % currentSubPhotos.length;
-    document.getElementById('lightboxImg').src = currentSubPhotos[lightboxIndex].path;
+    const img = document.getElementById('lightboxImg');
+    img.src = currentSubPhotos[lightboxIndex].path;
+    img.alt = CATEGORY_ALT[currentSubPhotos[lightboxIndex].cat] || 'תמונה מוגדלת';
 }
 
 document.addEventListener('keydown', (e) => {
@@ -2540,14 +2578,18 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-/* ─── CALCULATOR / הצעת מחיר ENGINE ─── */
-let activeCategory = 'wedding';
+/* ─── CALCULATOR / הצעת מחיר ENGINE (Default Active: event) ─── */
+let activeCategory = 'event';
 
 // Tab switching
 document.querySelectorAll('.calc-tab').forEach(tab => {
     tab.addEventListener('click', () => {
-        document.querySelectorAll('.calc-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.calc-tab').forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+        });
         tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
         
         activeCategory = tab.getAttribute('data-cat');
         document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
@@ -2557,7 +2599,6 @@ document.querySelectorAll('.calc-tab').forEach(tab => {
             targetPanel.classList.add('active');
         }
 
-        // Toggle footer visibility for contact-only panels
         const footer = document.getElementById('calcFooter');
         if (activeCategory === 'property' || activeCategory === 'conference') {
             footer.style.display = 'none';
@@ -2568,29 +2609,47 @@ document.querySelectorAll('.calc-tab').forEach(tab => {
     });
 });
 
-// Option Item Clicks
+// Option Item Clicks & Keyboard Toggle
 document.querySelectorAll('.calc-panel').forEach(panel => {
     // Checkboxes
     panel.querySelectorAll('.option-item:not(.radio-option)').forEach(item => {
-        item.addEventListener('click', () => {
-            item.classList.toggle('selected');
+        const toggleOption = () => {
+            const isSel = item.classList.toggle('selected');
+            item.setAttribute('aria-checked', isSel ? 'true' : 'false');
             updateCalculation();
+        };
+        item.addEventListener('click', toggleOption);
+        item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleOption();
+            }
         });
     });
 
     // Radio Options (support deselect / toggle)
     panel.querySelectorAll('.radio-option').forEach(radio => {
-        radio.addEventListener('click', () => {
+        const toggleRadio = () => {
             const parentList = radio.closest('.option-list');
             const wasSelected = radio.classList.contains('selected');
 
-            // unselect peers
-            parentList.querySelectorAll('.radio-option').forEach(r => r.classList.remove('selected'));
+            parentList.querySelectorAll('.radio-option').forEach(r => {
+                r.classList.remove('selected');
+                r.setAttribute('aria-checked', 'false');
+            });
 
             if (!wasSelected) {
                 radio.classList.add('selected');
+                radio.setAttribute('aria-checked', 'true');
             }
             updateCalculation();
+        };
+        radio.addEventListener('click', toggleRadio);
+        radio.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleRadio();
+            }
         });
     });
 });
@@ -2639,6 +2698,12 @@ document.getElementById('btnOpenBookingModal').addEventListener('click', () => {
     const calc = getActiveCalculation();
     currentBookingData = { ...calc, subtype: '' };
 
+    // Reset checkboxes to UNCHECKED per requirements
+    const termsCb = document.getElementById('termsAgreementCheckbox');
+    const privCb = document.getElementById('privacyTermsAgreementCheckbox');
+    if (termsCb) termsCb.checked = false;
+    if (privCb) privCb.checked = false;
+
     // Set UI labels
     document.getElementById('bookSumService').textContent = calc.serviceName + (calc.extras.length ? ` (+${calc.extras.length} תוספות)` : '');
     document.getElementById('bookSumPrice').textContent = calc.total.toLocaleString() + ' ₪';
@@ -2680,11 +2745,18 @@ document.getElementById('btnOpenBookingModal').addEventListener('click', () => {
             chip.type = 'button';
             chip.className = 'form-chip';
             chip.textContent = opt;
+            chip.setAttribute('role', 'radio');
+            chip.setAttribute('aria-checked', 'false');
             chip.onclick = () => {
-                chipsContainer.querySelectorAll('.form-chip').forEach(c => c.classList.remove('selected'));
+                chipsContainer.querySelectorAll('.form-chip').forEach(c => {
+                    c.classList.remove('selected');
+                    c.setAttribute('aria-checked', 'false');
+                });
                 chip.classList.add('selected');
+                chip.setAttribute('aria-checked', 'true');
                 currentBookingData.subtype = opt;
                 otherInput.style.display = opt === 'אחר' ? 'block' : 'none';
+                if (opt === 'אחר') otherInput.focus();
             };
             chipsContainer.appendChild(chip);
         });
@@ -2694,11 +2766,19 @@ document.getElementById('btnOpenBookingModal').addEventListener('click', () => {
 });
 
 function submitBookingToWhatsApp() {
-    // Check confirmation of terms
-    const agreementCheckbox = document.getElementById('termsAgreementCheckbox');
-    if (agreementCheckbox && !agreementCheckbox.checked) {
-        alert('יש לסמן את תיבת אישור תיאום הציפיות ותנאי השירות לפני השליחה.');
-        agreementCheckbox.focus();
+    // 1. Mandatory: Checkbox 1 (Expectations & Terms of Service)
+    const termsAgreementCheckbox = document.getElementById('termsAgreementCheckbox');
+    if (!termsAgreementCheckbox || !termsAgreementCheckbox.checked) {
+        alert('יש לסמן את תיבת אישור "תיאום ציפיות ותנאי השירות" לפני השליחה.');
+        if (termsAgreementCheckbox) termsAgreementCheckbox.focus();
+        return;
+    }
+
+    // 2. Mandatory: Checkbox 2 (Terms of Use & Privacy Policy with statutory disclosure)
+    const privacyTermsCheckbox = document.getElementById('privacyTermsAgreementCheckbox');
+    if (!privacyTermsCheckbox || !privacyTermsCheckbox.checked) {
+        alert('יש לסמן את תיבת אישור "תנאי השימוש ומדיניות הפרטיות" לפני השליחה.');
+        if (privacyTermsCheckbox) privacyTermsCheckbox.focus();
         return;
     }
 
@@ -2734,14 +2814,10 @@ function submitBookingToWhatsApp() {
     } else if (id === 'event') {
         const hasExtraHour = extras.some(e => e.includes('שעת צילום נוספת'));
         duration = hasExtraHour ? 'עד 4.5 שעות' : 'עד 3.5 שעות';
-    } else if (id === 'family' || id === 'branding') {
-        if (extras.some(e => e.includes('שעתיים'))) {
-            duration = 'שעתיים';
-        } else if (extras.some(e => e.includes('שעה וחצי'))) {
-            duration = 'שעה וחצי';
-        } else {
-            duration = 'שעה אחת';
-        }
+    } else if (id === 'family') {
+        duration = extras.some(e => e.includes('שעתיים')) ? 'שעתיים' : 'שעה אחת';
+    } else if (id === 'branding') {
+        duration = extras.some(e => e.includes('שעה וחצי')) ? 'שעה וחצי' : 'שעה אחת';
     }
 
     // Build WhatsApp message
@@ -2762,31 +2838,46 @@ function submitBookingToWhatsApp() {
     message += `📍 *מקום:* ${loc}\n`;
     message += `📝 *הערות:* ${notes}\n\n`;
     message += `${LEGAL_TERMS_SUMMARY}\n\n`;
-    message += `קראתי ואני מאשר/ת.`;
+    message += `קראתי ואישרתי את תיאום הציפיות, תנאי השירות, תנאי השימוש ומדיניות הפרטיות.`;
 
     const url = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank', 'noopener,noreferrer');
     closeModal('bookingModal');
 }
 
-/* ─── MODAL CONTROLLERS ─── */
+/* ─── ACCESSIBLE MODAL CONTROLLERS WITH FOCUS TRAP ─── */
+let previouslyFocusedElement = null;
+
 function openModal(modalId) {
     const el = document.getElementById(modalId);
-    if (el) {
-        el.classList.add('open');
-        document.body.classList.add('no-scroll');
+    if (!el) return;
+    
+    previouslyFocusedElement = document.activeElement;
+    el.classList.add('open');
+    document.body.classList.add('no-scroll');
+
+    // Focus on close button or first input
+    const focusable = el.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    if (focusable.length) {
+        focusable[0].focus();
     }
 }
 
 function closeModal(modalId) {
     const el = document.getElementById(modalId);
-    if (el) {
-        el.classList.remove('open');
-        document.body.classList.remove('no-scroll');
+    if (!el) return;
+
+    el.classList.remove('open');
+    document.body.classList.remove('no-scroll');
+
+    // Return focus to trigger element
+    if (previouslyFocusedElement && typeof previouslyFocusedElement.focus === 'function') {
+        previouslyFocusedElement.focus();
     }
 }
 
-['bookingModal', 'subGalleryModal', 'legalModal'].forEach(id => {
+// Modal Backdrop Click
+['bookingModal', 'subGalleryModal'].forEach(id => {
     const el = document.getElementById(id);
     if (el) {
         el.addEventListener('click', function(e) {
@@ -2795,25 +2886,16 @@ function closeModal(modalId) {
     }
 });
 
+// Escape key closes modals & drawer
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-        ['bookingModal', 'subGalleryModal', 'legalModal'].forEach(id => {
+        ['bookingModal', 'subGalleryModal'].forEach(id => {
             const el = document.getElementById(id);
             if (el && el.classList.contains('open')) closeModal(id);
         });
         closeDrawer();
     }
 });
-
-function openLegalModal(section) {
-    openModal('legalModal');
-    if (section) {
-        const target = document.getElementById('legalSection' + section.charAt(0).toUpperCase() + section.slice(1));
-        if (target) {
-            setTimeout(() => target.scrollIntoView({ behavior: 'smooth' }), 100);
-        }
-    }
-}
 
 /* ─── INITIALIZATION ─── */
 document.addEventListener('DOMContentLoaded', () => {
