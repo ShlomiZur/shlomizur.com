@@ -1497,6 +1497,9 @@ button {
     align-items: center;
     justify-content: center;
     padding: 20px;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .lightbox.open {
@@ -1509,6 +1512,7 @@ button {
     object-fit: contain;
     border-radius: 8px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    transition: opacity 0.15s ease;
 }
 
 .lightbox-close {
@@ -1525,6 +1529,7 @@ button {
     border-radius: 50%;
     background: rgba(255,255,255,0.1);
     cursor: pointer;
+    z-index: 10;
 }
 
 .lightbox-nav {
@@ -1542,6 +1547,7 @@ button {
     font-size: 1.4rem;
     cursor: pointer;
     transition: background 0.2s ease;
+    z-index: 10;
 }
 
 .lightbox-nav:hover {
@@ -1550,6 +1556,220 @@ button {
 
 .lightbox-prev { right: 20px; }
 .lightbox-next { left: 20px; }
+
+/* ══════════════════════════════════════════════════
+   MOBILE COMPACT & COMFORT OPTIMIZATIONS (<600px)
+   ══════════════════════════════════════════════════ */
+@media (max-width: 600px) {
+    /* Global Spacing & Typography */
+    .container {
+        padding: 0 12px;
+    }
+    .section-head {
+        margin-bottom: 20px;
+    }
+    .section-tag {
+        font-size: 0.74rem;
+        padding: 3px 10px;
+        margin-bottom: 6px;
+    }
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 6px;
+    }
+    .section-sub {
+        font-size: 0.86rem;
+        line-height: 1.4;
+    }
+    .calc-section, .gallery-section, .reviews-section, .about-section {
+        padding: 34px 0;
+    }
+
+    /* Calculator Wrapper & Touch Tabs */
+    .calc-wrapper {
+        border-radius: var(--radius-lg);
+    }
+    .calc-nav {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+        padding: 6px;
+    }
+    .calc-tab {
+        min-height: 52px;
+        padding: 8px 4px;
+        font-size: 0.82rem;
+        gap: 4px;
+        border-radius: var(--radius-sm);
+    }
+    .calc-tab i {
+        font-size: 1.1rem;
+    }
+
+    /* Calculator Panels & Options */
+    .calc-panel {
+        padding: 14px 10px;
+    }
+    .panel-header {
+        padding-bottom: 10px;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .panel-title {
+        font-size: 1.05rem;
+        line-height: 1.3;
+    }
+    .panel-base-pill {
+        font-size: 0.82rem;
+        padding: 3px 9px;
+        white-space: nowrap;
+    }
+    .calc-panel p {
+        font-size: 0.83rem !important;
+        margin-bottom: 10px !important;
+        line-height: 1.4;
+    }
+    .calc-group-title {
+        font-size: 0.85rem;
+        margin: 12px 0 7px;
+        gap: 6px;
+    }
+    .option-list {
+        gap: 7px;
+    }
+    .option-item {
+        padding: 8px 10px;
+        min-height: 42px;
+        border-radius: var(--radius-sm);
+    }
+    .option-right {
+        gap: 8px;
+        flex: 1;
+        min-width: 0;
+    }
+    .option-checkbox-custom, .option-radio-custom {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+    }
+    .option-title {
+        font-size: 0.82rem;
+        line-height: 1.3;
+        white-space: normal;
+        word-break: break-word;
+    }
+    .option-price-tag {
+        font-size: 0.84rem;
+        flex-shrink: 0;
+        margin-right: 6px;
+    }
+
+    /* Calculator Live Footer */
+    .calc-footer {
+        padding: 12px 14px;
+        gap: 10px;
+    }
+    .calc-total-box {
+        text-align: center;
+    }
+    .calc-total-label {
+        font-size: 0.78rem;
+    }
+    .calc-total-num {
+        font-size: 1.55rem;
+    }
+    .btn-proceed-booking {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 0.95rem;
+    }
+
+    /* Booking Modal Tightening */
+    .modal-card {
+        max-height: 94vh;
+        border-radius: 18px;
+    }
+    .modal-header {
+        padding: 12px 14px;
+    }
+    .modal-header h3 {
+        font-size: 1.05rem;
+    }
+    .modal-body {
+        padding: 12px 12px;
+    }
+    .form-field {
+        margin-bottom: 9px;
+    }
+    .form-field label {
+        font-size: 0.8rem;
+        margin-bottom: 3px;
+    }
+    .form-chips {
+        gap: 5px;
+    }
+    .form-chip {
+        padding: 4px 10px;
+        font-size: 0.76rem;
+    }
+    .form-input {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+        border-radius: 8px;
+    }
+    .booking-summary-strip {
+        padding: 8px 11px;
+        margin-bottom: 9px;
+    }
+    .booking-summary-strip .title {
+        font-size: 0.78rem;
+    }
+    .booking-summary-strip .price {
+        font-size: 1rem;
+    }
+    .expectations-terms-box {
+        padding: 9px 11px;
+        margin: 9px 0 11px;
+        border-radius: 9px;
+    }
+    .expectations-box-title {
+        font-size: 0.84rem;
+        margin-bottom: 4px;
+    }
+    .expectations-box-body {
+        font-size: 0.76rem;
+        line-height: 1.4;
+        padding-bottom: 6px;
+        margin-bottom: 6px;
+        max-height: 90px;
+        overflow-y: auto;
+    }
+    .required-checkbox-label {
+        font-size: 0.76rem;
+        gap: 7px;
+        margin-bottom: 6px;
+        line-height: 1.35;
+    }
+    .required-checkbox-label input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        margin-top: 1px;
+    }
+    .btn-send-wa-final {
+        padding: 11px;
+        font-size: 0.92rem;
+        border-radius: var(--radius-full);
+    }
+
+    /* Sub-Gallery Modal */
+    .subgallery-header {
+        padding: 10px 14px;
+        border-bottom: none;
+    }
+    .subgallery-grid {
+        gap: 8px;
+    }
+}
 
 </style>
 </head>
@@ -2215,15 +2435,14 @@ button {
 <!-- ══════════════════════════════════════════════════
      MODAL: SUB-GALLERY (VIEW EVENT PHOTOS)
      ══════════════════════════════════════════════════ -->
-<div class="modal-overlay" id="subGalleryModal" role="dialog" aria-modal="true" aria-labelledby="subGalleryTitle">
+<div class="modal-overlay" id="subGalleryModal" role="dialog" aria-modal="true" aria-label="גלריית תמונות">
     <div class="modal-card subgallery-modal-card">
-        <div class="modal-header">
-            <h3 id="subGalleryTitle">תמונות מהאירוע</h3>
-            <button class="modal-close-btn" onclick="closeModal('subGalleryModal')" aria-label="סגירת גלריית האירוע">
+        <div class="modal-header subgallery-header" style="justify-content: flex-start; border-bottom: none; padding: 12px 18px;">
+            <button class="modal-close-btn" onclick="closeModal('subGalleryModal')" aria-label="סגירת גלריית תמונות">
                 <i class="fa-solid fa-xmark" aria-hidden="true"></i>
             </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" style="padding-top: 4px;">
             <div class="subgallery-grid" id="subGalleryGrid">
                 <!-- Populated via JS -->
             </div>
@@ -2519,14 +2738,12 @@ function openSubGallery(eid, cat) {
     const grid = document.getElementById('subGalleryGrid');
     grid.innerHTML = '';
 
-    document.getElementById('subGalleryTitle').textContent = `אלבום ${CATEGORY_HEB[cat]}`;
-
     currentSubPhotos.forEach((item, index) => {
         const d = document.createElement('div');
         d.className = 'sub-item';
         d.setAttribute('role', 'button');
         d.setAttribute('tabindex', '0');
-        d.setAttribute('aria-label', `הגדלת תמונה ${index + 1} מתוך אלבום ${CATEGORY_HEB[cat]}`);
+        d.setAttribute('aria-label', `הגדלת תמונה ${index + 1}`);
         d.innerHTML = `<img src="${item.path}" alt="${CATEGORY_ALT[cat] || 'תמונה'}" loading="lazy">`;
         d.onclick = () => openLightbox(index);
         d.onkeydown = (e) => {
@@ -2570,6 +2787,7 @@ function prevLightboxImage() {
     img.alt = CATEGORY_ALT[currentSubPhotos[lightboxIndex].cat] || 'תמונה מוגדלת';
 }
 
+/* Lightbox Keyboard Navigation */
 document.addEventListener('keydown', (e) => {
     if (document.getElementById('lightbox').classList.contains('open')) {
         if (e.key === 'Escape') closeLightbox();
@@ -2577,6 +2795,33 @@ document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight') prevLightboxImage();
     }
 });
+
+/* Lightbox Touch Swipe Navigation (גלילה הצידה במסך מגע) */
+let lbTouchStartX = 0;
+let lbTouchStartY = 0;
+const lbContainer = document.getElementById('lightbox');
+
+lbContainer.addEventListener('touchstart', (e) => {
+    if (e.touches && e.touches.length > 0) {
+        lbTouchStartX = e.touches[0].clientX;
+        lbTouchStartY = e.touches[0].clientY;
+    }
+}, { passive: true });
+
+lbContainer.addEventListener('touchend', (e) => {
+    if (e.changedTouches && e.changedTouches.length > 0) {
+        const diffX = e.changedTouches[0].clientX - lbTouchStartX;
+        const diffY = e.changedTouches[0].clientY - lbTouchStartY;
+        // Gesture threshold: at least 35px, predominantly horizontal
+        if (Math.abs(diffX) > 35 && Math.abs(diffX) > Math.abs(diffY)) {
+            if (diffX < 0) {
+                nextLightboxImage(); // גרירה שמאלה -> תמונה הבאה
+            } else {
+                prevLightboxImage(); // גרירה ימינה -> תמונה קודמת
+            }
+        }
+    }
+}, { passive: true });
 
 /* ─── CALCULATOR / הצעת מחיר ENGINE (Default Active: event) ─── */
 let activeCategory = 'event';
